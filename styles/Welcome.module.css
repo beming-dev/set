@@ -1,0 +1,115 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.options {
+  display: flex;
+  width: 100%;
+}
+
+.option {
+  cursor: pointer;
+  padding: 100px 40px;
+  margin: 1px;
+  background-color: #132a46;
+  color: white;
+  font-size: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s; /* Add a smooth transition for the color change */
+}
+
+.option:hover {
+  background-color: #4d5d71;
+}
+
+/* Media query for mobile screens */
+@media screen and (max-width: 767px) {
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 1px;
+  }
+  .option {
+    padding: 25px 10px; /* Adjust the padding values according to your preference */
+  }
+}
+
+.question {
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+.nextbutton {
+  font-size: 16px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.btnwrapper {
+  padding-top: 60px;
+  text-align: right;
+}
+
+.menucontainer {
+  max-width: 1320px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.menurow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menucol {
+  width: 40%;
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  text-align: justify;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.logo {
+  max-width: 70px;
+  padding: 10px;
+  position: relative;
+}
+
+.logoimg {
+  max-width: 100%;
+  height: auto; /* This ensures the aspect ratio is maintained */
+}
+
+.linkbar {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px; /* Set a maximum width for the entire link bar */
+  margin: 0 auto; /* Center the link bar on the screen, adjust as needed */
+  height: 100%;
+}
+
+.linkbar a {
+  flex-grow: 1; /* Allow links to grow and evenly distribute space */
+  text-align: center; /* Center the text within the link */
+  margin: 0 30px; /* Set a margin to control space between links */
+  display: grid;
+  align-items: center;
+}
+
+.mobilebutton {
+  display: none; /* Initially hide the mobile button */
+}

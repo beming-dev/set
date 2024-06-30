@@ -1,0 +1,253 @@
+.bghome {
+  background-image: url("/images/background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bodyAbout {
+  background-image: url("/images/aboutbg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.abtContainer {
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  padding: 40px;
+  padding-top: 80px;
+}
+
+.menucontainer {
+  max-width: 1320px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.mobilemenu {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .menucontainer {
+    display: none;
+  }
+  .mobilemenu {
+    width: 100%;
+    height: 40px;
+    background-color: #efeae7;
+    display: flex; /* Display the mobile button on small screens */
+    justify-content: flex-end;
+  }
+}
+
+.menurow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menucol {
+  /*width: 40%;*/
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  text-align: justify;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  width: 40%;
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  text-align: justify;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.columns {
+  width: 20%;
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  text-align: justify;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+/* Add a media query for smaller screens */
+@media (max-width: 1024px) {
+  .row {
+    flex-direction: column; /* Stack columns on top of each other */
+  }
+  .column {
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%; /* Take up the full width on smaller screens */
+    margin-left: 0; /* Reset left margin */
+    margin-right: 0; /* Reset right margin */
+  }
+}
+
+.colimg {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* Prevent image from stretching */
+}
+
+.centerimg {
+  margin: auto;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.iconimg {
+  margin: auto;
+  width: 100%;
+  max-width: 40px;
+  height: auto;
+}
+
+.paragraph {
+  margin-top: 65px;
+  margin-bottom: 65px;
+}
+
+.abtparagraph {
+  margin-top: 95px;
+  margin-bottom: 45px;
+}
+
+.linkbar {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px; /* Set a maximum width for the entire link bar */
+  margin: 0 auto; /* Center the link bar on the screen, adjust as needed */
+  height: 100%;
+}
+
+.linkbar a {
+  flex-grow: 1; /* Allow links to grow and evenly distribute space */
+  text-align: center; /* Center the text within the link */
+  margin: 0 30px; /* Set a margin to control space between links */
+  display: grid;
+  align-items: center;
+}
+
+.mobilebutton {
+  display: none; /* Initially hide the mobile button */
+}
+
+.logo {
+  max-width: 70px;
+  padding: 10px;
+  position: relative;
+}
+
+.logoimg {
+  max-width: 100%;
+  height: auto; /* This ensures the aspect ratio is maintained */
+}
+
+.cfabox {
+  margin-top: 40px;
+  border-radius: 10px;
+  padding: 40px 10px 40px 10px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.23);
+  border-radius: 16px;
+  backdrop-filter: blur(5.2px);
+  -webkit-backdrop-filter: blur(5.2px);
+  border: 0.5px solid #2e2e2e;
+}
+
+.cfarow {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.btn {
+  color: white;
+  border-radius: 6px;
+  padding: 12px 60px 12px 60px;
+  background-color: #7b6153;
+  margin: 32px;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.colcentered {
+  text-align: center;
+  padding-top: 60px;
+}
+
+.vl {
+  border-left: 1px solid #132a46;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: auto;
+  margin-top: 3%;
+}
+
+.bgsand {
+  width: 100%;
+  background-color: #e6e1de;
+}
+
+.bgbeach {
+  background-color: #efeae7;
+}
+
+.box {
+  margin: 30px;
+  border-radius: 3px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.23);
+  backdrop-filter: blur(5.2px);
+  -webkit-backdrop-filter: blur(5.2px);
+  border: 0.5px solid #2e2e2e;
+  box-shadow: -11px 17px 33px -14px rgba(0, 0, 0, 0.26);
+}
+
+.subbox_t {
+  border-bottom: 0.5px solid #2e2e2e;
+  padding: 40px 10px 40px 10px;
+}
+
+.subbox_b {
+  background: #efeae7;
+  padding: 40px 10px 40px 10px;
+}
+
+.subbtn {
+  border-radius: 28px;
+  padding: 12px 60px 16px 60px;
+  background-color: #7b6153;
+  margin: 100px 20px 100px 20px;
+  box-shadow: -19px 17px 64px -14px rgba(0, 0, 0, 0.46) inset;
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.subbtn:hover {
+  background-color: #a78b7d;
+}

@@ -1,0 +1,14 @@
+PUT http://localhost:3000/api/business/data
+Content-Type: application/json
+
+{
+    "businessData" :{
+        "size": 200000,
+        "turnover": 10000,
+        "budget": 1000000,
+        "industry": "Fast Food",
+        "location": "Drenthe",
+        "transaction": "Merge",
+        "age": "7"
+    }
+}

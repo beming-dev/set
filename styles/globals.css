@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .glass {
+    @apply h-full w-full bg-white bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-60;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 130%;
+}
+
+h1 {
+  color: #132a46;
+  font-size: 33px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 300;
+  margin-top: 0px;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+h3 {
+  font-weight: 300;
+  font-size: 30px;
+  color: #132a46;
+  margin-top: 10px;
+  padding-bottom: 30px;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 60px;
+  color: #132a46;
+  margin-top: 0px;
+}
+
+h5 {
+  color: white;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 140%;
+}
+
+h6 {
+  color: #2e2e2e;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 130%;
+  padding-top: 70px;
+}
+
+img {
+  width: 100%;
+}
+
+sub {
+  color: white;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+main {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.chat-bot {
+  bottom: 200px;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}

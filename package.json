@@ -1,0 +1,43 @@
+{
+  "name": "set",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
+    "@prisma/client": "^5.5.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "ai": "^3.0.15",
+    "axios": "^1.7.2",
+    "bcryptjs": "^2.4.3",
+    "cheerio": "^1.0.0-rc.12",
+    "formik": "^2.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.1",
+    "mysql2": "^3.6.3",
+    "next": "^13.5.6",
+    "next-auth": "^4.24.4",
+    "openai": "^4.29.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "recoil": "^0.7.7",
+    "tailwind": "^4.0.0",
+    "uuid": "^9.0.1",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.61",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.6",
+    "postcss": "^8.4.31",
+    "prisma": "^5.5.2",
+    "tailwindcss": "^3.3.5"
+  }
+}

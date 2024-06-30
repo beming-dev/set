@@ -1,0 +1,23 @@
+.dropdown {
+  background: white;
+  z-index: 10;
+  display: grid;
+  position: fixed;
+  padding: 20px;
+  left: 0;
+  max-height: none;
+  width: 100%;
+  padding: 20px;
+}
+
+.menubutton {
+  color: #132a46;
+  border: none;
+  background-color: transparent;
+  padding: 8px;
+}
+
+.menubutton svg {
+  width: 32px;
+  height: 32px;
+}
