@@ -10,16 +10,16 @@ export default function Nav({ children, background }) {
       link: "/",
     },
     {
-      name: "Buyers",
-      link: "/buying",
+      name: "Solutions",
+      link: "/solution",
     },
     {
-      name: "Sellers",
-      link: "/selling",
+      name: "Pricing",
+      link: "/pricing",
     },
     {
-      name: "Who are we",
-      link: "/#meet",
+      name: "About us",
+      link: "/about",
     },
   ];
   const { authed, logout } = useAuth();
@@ -31,116 +31,70 @@ export default function Nav({ children, background }) {
   };
   return (
     <div className="nav-bar">
-      <div className="header">
-        <Link href="/blog">
-          <span className="text-01">Blog</span>
-        </Link>
-        {authed ? (
-          <span onClick={onLogoutClick} className="login text-01">
-            Log out
-          </span>
-        ) : (
-          <Link href="/login">
-            <span className="login text-01">Log in</span>
-          </Link>
-        )}
-        <span className="text-01">ENG</span>
-      </div>
-      <div className="nav">
-        <Link href="/">
-          <div className="logo-box">
-            <Image src={"/images/logo.png"} alt="logo" fill />
-          </div>
-        </Link>
-        <div className="nav-list">
-          {navList.map((item, i) => (
-            <Link href={item.link} key={i}>
-              <div className="nav-item">{item.name}</div>
-            </Link>
-          ))}
+      <div className="logo-box-box">
+        <div className="logo-box">
+          <Image src="/images/footer-logo.png" fill alt="logo" />
         </div>
+        <span className="logo-txt">SET</span>
+      </div>
+
+      <div className="nav">
+        {navList.map((item, i) => (
+          <Link href={item.link} key={i}>
+            <span className="nav-txt">{item.name}</span>
+          </Link>
+        ))}
+      </div>
+
+      <div className="items">
+        <button className="login-btn btn">Log in</button>
+        <button className="free-btn btn">Free Trial</button>
       </div>
       <style jsx>{`
         .nav-bar {
-          width: 100vw;
+          color: white;
+          width: 100%;
+          height: 91px;
+          background-color: #365154;
           display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: space-between;
-
-          .header {
-            width: calc(100vw);
-            height: 39px;
-            background-color: #001024;
+          padding: 0 5%;
+          .logo-box-box {
             display: flex;
             align-items: center;
-            color: white;
-            display: flex;
-            justify-content: flex-end;
-            padding-right: 10%;
-
-            .text-01 {
-              margin: 0 10px;
-            }
-            .login {
-              border: 1px solid #6db9ff;
-              padding: 2px 10px;
-              border-radius: 20px;
-              color: #6db9ff;
-              cursor: pointer;
-            }
-          }
-          .nav {
-            width: 100%;
-            display: flex;
-            height: 100px;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 10%;
             .logo-box {
               position: relative;
-              width: 75px;
-              height: 79px;
+              width: 90px;
+              height: 57px;
             }
-            .nav-list {
-              display: flex;
-              .nav-item {
-                margin: 0 20px;
-              }
+            .logo-txt {
+              font-size: 2.5rem;
+              letter-spacing: 4px;
             }
           }
         }
-        @media (max-height: 730px) {
-          .nav-bar {
-            margin-bottom: 200px;
+
+        .nav {
+          .nav-txt {
+            margin: 0 15px;
           }
         }
 
-        @media (max-height: 1200px) {
-          .nav-bar {
-            .header {
-              span {
-                margin: 0 5px;
-              }
-            }
-
-            .nav {
-              .logo-box {
-                width: calc(75px * 7 / 10);
-                height: calc(79px * 7 / 10);
-              }
-
-              .nav-list {
-                .nav-item {
-                  margin: 0 10px;
-                }
-              }
-            }
+        .items {
+          .btn {
+            padding: 10px 20px;
+            border: 1px solid white;
+            border-radius: 50px;
           }
-        }
-        @media (max-height: 768px) {
-          .nav-bar {
-            margin-bottom: 0px;
+
+          .login-btn {
+            margin: 0 10px;
+          }
+
+          .free-btn {
+            background-color: #939cb2;
+            border-color: #939cb2;
           }
         }
       `}</style>

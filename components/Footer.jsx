@@ -6,156 +6,134 @@ import Link from "next/link";
 function Footer() {
   return (
     <div className="footer">
-      <div className="logo-box">
-        <Image src="/images/footer-logo.png" fill alt="logo" />
-      </div>
-      <div className="content">
-        <div className="left">
-          <span className="text">silvereratransition.com</span>
-          <span className="text">Complaints procedure</span>
-          <span className="text">
-            <Link href="/tandc">Terms and Conditions</Link>
-          </span>
-          <span className="text">Terms of Use</span>
-          <span className="text">
-            <Link href="/privacyPolicy">Privacy Policy</Link>
-          </span>
-          <span className="text">Cookie Policy</span>
-          <span>Sitemap</span>
+      <div className="left">
+        <div className="logo-box">
+          <div className="logo-image-box">
+            <Image src="/images/footer-logo.png" fill alt="logo" />
+          </div>
+          <h1 className="logo-txt">SET</h1>
         </div>
-        <div className="right">
-          <div className="top">
-            <div className="tools">
-              <span className="title">Tools</span>
-              <span className="text">Book</span>
-              <span className="text">Search Service</span>
-              <span className="text">News Letter</span>
-              <span className="text">FAQs</span>
-            </div>
-            <div className="contract">
-              <span className="title">Contact</span>
-              <Link href="mailto:SETdenhaag@gmail.com" className="text">
-                Email
-              </Link>
-              <span className="text">LinkedIn</span>
-              <span className="text">Instagram</span>
-              <span className="text">Twitter</span>
-            </div>
+        <span className="txt-01">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit
+          amet neque tortor.{" "}
+        </span>
+        <div className="icon-box">
+          <div className="icon-image-box">
+            <Image src="/images/twitter.png" fill />
           </div>
-          <div className="bottom">
-            <span className="text-01">Join Our Newsletter</span>
-            <div className="submit-box">
-              <button className="btn-submit">SUBMIT</button>
-              <input
-                className="input"
-                type="text"
-                placeholder="Email Address"
-              />
-            </div>
+          <div className="icon-image-box">
+            <Image src="/images/insta.png" fill />
           </div>
+          <div className="icon-image-box">
+            <Image src="/images/facebook.png" fill />
+          </div>
+          <div className="icon-image-box">
+            <Image src="/images/youtube.png" fill />
+          </div>
+        </div>
+      </div>
+      <div className="center">
+        <h2>Quick Links</h2>
+        <span className="txt-01">About Us</span>
+        <span className="txt-01">Service</span>
+        <span className="txt-01">Pricing</span>
+        <span className="txt-01">Blog</span>
+      </div>
+      <div className="right">
+        <h2>Contact Us</h2>
+        <div className="txt-01-box">
+          <div className="image-box">
+            <Image src="/images/email.png" fill />
+          </div>
+          <span className="txt-01">info@tomatoworld.nl</span>
+        </div>
+        <div className="txt-01-box">
+          <div className="image-box">
+            <Image src="/images/position.png" fill />
+          </div>
+          <span className="txt-01">
+            TomatoWorld  Zwethlaan 2, 2675 LB Honselersdijk
+          </span>
+        </div>
+        <div className="txt-01-box">
+          <div className="image-box">
+            <Image src="/images/call.png" fill />
+          </div>
+          <span className="txt-01">
+            <u>0174 612 525</u>
+          </span>
         </div>
       </div>
       <style jsx>{`
         .footer {
-          display: flex;
-          flex-direction: column;
-          background-color: #001024;
-          margin-top: 100px;
+          width: 100vw;
+          background-color: #365154;
           color: white;
-          padding-bottom: 100px;
-          position: relative;
-          .logo-box {
-            position: relative;
-            width: 173px;
-            height: 117px;
-          }
+          display: flex;
+          padding: 150px 5%;
+          align-items: start;
+          justify-content: space-between;
 
-          .content {
+          .left {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
 
-            .title {
-              font-size: 2rem;
-              margin-bottom: 20px;
-              font-weight: 500;
-            }
-            .text {
-              font-weight: 100;
-              margin: 3px 0;
-            }
-            .left {
+            .logo-box {
               display: flex;
-              flex-direction: column;
-              margin-right: 100px;
-            }
-            .right {
-              display: flex;
-              flex-direction: column;
-
-              .top {
-                display: flex;
-                .tools {
-                  display: flex;
-                  flex-direction: column;
-                  margin-right: 100px;
-                }
-                .contract {
-                  display: flex;
-                  flex-direction: column;
-                }
+              align-items: center;
+              .logo-txt {
+                padding: 0;
+                color: white;
               }
+              .logo-image-box {
+                position: relative;
+                width: 100px;
+                height: 60px;
+              }
+            }
 
-              .bottom {
-                margin-top: 30px;
-                width: 100%;
-                .text-01 {
-                  font-size: 2rem;
-                  font-weight: bold;
-                }
+            .txt-01 {
+              max-width: 270px;
+              margin: 20px 0;
+            }
 
-                .submit-box {
-                  width: 100%;
-                  height: 61px;
-                  position: relative;
-                  margin-top: 30px;
-                  .input {
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(88, 162, 195, 0.42);
-                    border-radius: 50px;
-                    outline: none;
-                    padding-left: 35%;
-                  }
-                  .btn-submit {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    background-color: #6db9ff;
-                    padding: 0 20px;
-                    border-radius: 50px;
-                    color: black;
-                    width: 30%;
-                  }
-                }
+            .icon-box {
+              display: flex;
+
+              .icon-image-box {
+                position: relative;
+                width: 35px;
+                height: 35px;
+                margin-right: 20px;
               }
             }
           }
-        }
-        @media (max-width: 768px) {
-          .footer {
-            align-items: center;
-            .logo-box {
-              position: relative;
-              width: calc(173px * 4 / 5);
-              height: calc(117px * 4 / 5);
+          .center {
+            display: flex;
+            flex-direction: column;
+
+            .txt-01 {
+              margin: 10px 0;
             }
-            .content {
-              flex-direction: column;
+          }
+          .right {
+            display: flex;
+            flex-direction: column;
+
+            .image-box {
+              position: relative;
+              width: 15px;
+              height: 15px;
+            }
+            .txt-01-box {
+              display: flex;
               align-items: center;
-              .left {
-                margin: 0;
-                margin-bottom: 20px;
+              margin: 10px 0;
+              .image-box {
+                margin-right: 10px;
+                width: 15px;
+                height: 15px;
+                position: relative;
               }
             }
           }

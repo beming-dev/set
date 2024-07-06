@@ -2,1066 +2,658 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Nav from "../components/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const toolkitItem = [
-    "Reassurance",
-    "Step by step guide",
-    "Search engine",
-    "Valuation",
-    "Newsletter",
-    "Data drive",
-    "Template transaction documentation",
-    "Specialist in your area",
-  ];
-  const cofounder = [
-    {
-      name: "Simone",
-      image: "/images/simone.png",
-    },
-    {
-      name: "Jason",
-      image: "/images/jason.png",
-    },
-    {
-      name: "Coner",
-      image: "/images/coner.png",
-    },
-    {
-      name: "Mingwan",
-      image: "/images/mingwan.png",
-    },
-  ];
-
-  const others = [
-    {
-      name: "FATIMA BWORN",
-      image: "/images/fatima.png",
-      description:
-        "“I had a small restaurant that I did not have the time to run anymore. I have to say I am impressed with the experience.”",
-    },
-    {
-      name: "JEREMY OTTO",
-      image: "/images/jeremy.png",
-      description:
-        "“Raising a company is not easy. Selling it even less. SET really did make me feel delighted and reassured with my transition”",
-    },
-    {
-      name: "OLIVIA COLE",
-      image: "/images/olivia.png",
-      description:
-        "“I had a great experience with SET. I was able to find the exact investment I looking for” ",
-    },
-  ];
-
-  const FAQs = [
-    {
-      qustion: "What services does the firm provide?",
-      description:
-        "Our firm specializes in leveraging advanced artificial intelligence technologies to offer a comprehensive suite of merger and acquisition advisory services. These services include but are not limited to, target identification through AI-driven analytics, valuation modelling using machine learning algorithms. By integrating AI into our core operations, we aim to enhance the efficiency, accuracy, and strategic value of our matching service, enabling our clients to make data-informed decisions throughout the M&A process.",
-    },
-    {
-      qustion: "How does AI technology improve the M&A process?",
-      description:
-        "Artificial intelligence significantly improves the M&A process by automating and optimizing several key aspects. Firstly, AI algorithms can analyse vast datasets to identify potential acquisition targets or buyers much more rapidly than traditional methods, thus saving time and resources. Secondly, machine learning models are utilized to conduct analysis on potential successors/ buyers by swiftly sifting through financial documents, and other pertinent data to uncover risks and opportunities. Furthermore, AI-driven valuation models enable more accurate and dynamic assessment of a target company's worth by factoring in a wider range of variables, including market trends and predictive financial performance. Lastly, AI can assist in the negotiation phase by simulating various scenarios and outcomes, helping parties to strategize effectively. These enhancements collectively contribute to a more informed, efficient, and strategic M&A matching process.",
-    },
-    {
-      qustion: "Can AI replace human advisors in the M&A process?",
-      description:
-        "While AI brings significant advancements in processing data and generating insights, it complements rather than replaces the critical role of human advisors in the M&A process. Human expertise is indispensable for interpreting AI-generated data, understanding the nuanced strategic implications, and making judgment-based decisions that require emotional intelligence, such as negotiating deal terms and managing stakeholder relationships. Our approach integrates AI as a powerful tool to augment the expertise of our advisors, ensuring that clients receive a blend of cutting-edge technology and seasoned professional judgment through alliances we have forged with accounting and legal firms.",
-    },
-    {
-      qustion:
-        "What measures are in place to ensure data security and confidentiality?",
-      description:
-        "Recognising the paramount importance of data security and confidentiality in M&A transactions, our firm implements careful security protocols and leverages encryption technologies to protect all client data. AI systems are designed with built-in security features, including access controls, audit trails, and anomaly detection algorithms, to prevent unauthorized access and data breaches. Additionally, we adhere to international data protection regulations (GDPR) and industry best practices, ensuring that all client information is handled with the utmost discretion and integrity throughout the M&A process.",
-    },
-    {
-      qustion:
-        "How does the firm stay updated with the latest AI advancements?",
-      description:
-        "Our firm is committed to staying at the forefront of AI technology in the M&A sector. We maintain dedicated to research and AI training that focuses on exploring and integrating the latest AI advancements into our services. This includes continuous training for our staff on new AI tools and methodologies, partnerships with academic institutions, and active participation in industry forums and conferences. By keeping level with emerging trends and innovations in AI, we ensure that our clients benefit from the most advanced and effective tools available for their M&A activities.",
-    },
-    {
-      qustion:
-        "How does the AI platform enhance target screening and selection?",
-      description:
-        "The AI platform enhances target screening and selection by employing advanced algorithms to analyse market data, financial performances, and industry trends, thereby identifying potential targets that align with the strategic objectives of our clients. The AI-driven approach allows for the processing of vast amounts of information, including unstructured data such as news articles and social media, enabling a more comprehensive and nuanced analysis. This results in a highly curated list of targets, optimized for potential synergies, financial health, and strategic fit, thus improving the likelihood of successful acquisitions.",
-    },
-    {
-      qustion: "Can the AI platform predict the success of an M&A deal?",
-      description:
-        "The AI platform employs predictive analytics and machine learning models to assess the potential success of an M&A deal by analysing historical deal data, industry trends, and financial performance indicators. While no prediction is infallible, the platform can provide a probability score indicating the likelihood of achieving the desired outcomes, such as synergies realization, financial performance improvements, and strategic alignment. These predictions help clients make informed decisions by highlighting potential challenges and opportunities, although they are complemented by human expertise to consider qualitative factors and strategic implications.",
-    },
-  ];
-
-  const [activeItems, setActiveItems] = useState(-1);
-  const [question, setQuestion] = useState("");
-
-  const handleClick = (index) => {
-    if (index == activeItems) {
-      setActiveItems(() => -1);
-    } else {
-      setActiveItems(index);
-    }
-  };
-
-  const router = useRouter();
-
-  const onSearchSubmit = (e) => {
-    e.preventDefault();
-    router.push({
-      pathname: "/search",
-      query: { q: question },
-    });
-  };
-  const onQChange = (e) => {
-    setQuestion(e.target.value);
-  };
   return (
     <div className="home">
-      <div className="image-01 image">
-        <Image src={"/images/home01.png"} alt="a" fill />
-      </div>
-      <div className="image-02 image">
-        <Image src={"/images/home02.png"} alt="a" fill />
-      </div>
-      <div className="content-01 content">
-        <div className="image-03 image">
-          <Image src={"/images/home03.png"} alt="a" fill />
-        </div>
-        <div className="home-content">
-          <div className="home-logo">
-            <Image src={"/images/home-logo.png"} alt="logo" fill />
-          </div>
-          <span className="text-01">Silver Era Transition</span>
-          <span className="text-02">
-            The European crossroad for <u> generational transitions</u>
-          </span>
-          <form className="input-box" onSubmit={onSearchSubmit}>
-            <input
-              className="search-input"
-              type="text"
-              placeholder="Describe what you are looking for..."
-              onChange={onQChange}
-            />
-            <button type="submit" className="send-image-box">
-              <Image
-                alt="submit"
-                src={"/images/send.png"}
-                width={50}
-                height={50}
-              />
-            </button>
-          </form>
-        </div>
-      </div>
-      <div className="bottom-bar">
-        <span className="bottom-text">Large Selection</span>
-        <span className="bottom-text">Connecting Platform</span>
-        <span className="bottom-text">Group of Advisors</span>
-      </div>
-      <div className="content-02 content">
-        <span className="text-01">
-          We create meaningful connections between ageing business
-          <br /> owners and potential successors
-        </span>
-        <div className="want-box">
-          <span className="text-02">I want to</span>
-          <div className="want-item-box">
-            <div
-              className="want-item"
-              onClick={() => {
-                router.push("/selling");
-              }}
-            >
-              Sell a company
-            </div>
-            <div
-              className="want-item"
-              onClick={() => {
-                router.push("/buying");
-              }}
-            >
-              Buy a company
-            </div>
-            <div className="want-item">Find an advisor</div>
-          </div>
-        </div>
-      </div>
-      <div className="content-03 content">
-        <span className="title">What do we do?</span>
-        <div className="what-box">
-          <p className="txt-box">
-            We create meaningful connections between ageing business owners and
-            potential successors <br />
-            <br /> We understand that for many elderly entrepreneurs, the most
-            important factor isn't just selling their business, but ensuring it
-            thrives under new leadership. <br />
-            <br /> At the same time, younger generations are exposed to the
-            shiny new ventures. There's no need to start from scratch when you
-            can step into a well-established and smoothly operating enterprise.
-          </p>
-          <div className="image-box">
-            <Image src="/images/what.png" alt="what" fill />
-          </div>
-        </div>
-      </div>
-      <div className="content-04 content">
-        <span className="title">Our focus</span>
-        <div className="focus-box">
-          <div className="focus-image-box">
-            <Image src="/images/focus.png" alt="focus" fill />
-          </div>
-          <p className="p">
-            The process of buying and selling a business is a difficult and
-            lengthy one. <br />
-            <br /> We establish the right foundations for your successful
-            transition: meeting the right person and conducting your research
-            with advisors. All in a speedy timeframe. <br />
+      <section className="section-01">
+        <div className="left">
+          <h1 className="txt-01">
+            The European Crossed for
             <br />
-            Why do we focus here? Because Europe's is an ageing continent.
-            Therefore our approach isn't just innovative; it's necessary.
-          </p>
+            <span className="effect">Generational Transitions</span>
+          </h1>
+          <h2 className="txt-02">
+            Silver Era Transition bridges generations, ensuring the continuity
+            and growth of businesses. Designed for sellers, buyer and brokers,
+            we streamline the process by identify ideal opportunities, ensuring
+            a seamless and successful transition.
+          </h2>
+
+          <div className="btn-box">
+            <button className="start-btn btn">Get Started</button>
+            <button className="book-btn btn">Book a Demo</button>
+          </div>
         </div>
-      </div>
-      <div className="content-05 content">
-        <span className="title">Why us?</span>
-        <ol className="ol">
-          <li>
-            <b>Innovative Matching Technology:</b> Utilizes advanced AI
-            algorithms for precise and intelligent matchmaking.
-          </li>
-          <br />
-          <li>
-            <b>Focus on Legacy:</b> Emphasizes preserving the business's legacy,
-            not just facilitating transactions.
-          </li>
-          <br />
-          <li>
-            <b>User-Friendly Interface:</b> Offers a streamlined,
-            easy-to-navigate platform with interactive tools.
-          </li>
-        </ol>
+        <div className="right">
+          <div className="image-box">
+            <Image src={"/images/index-section-01.png"} alt="nomean" fill />
+          </div>
+        </div>
+      </section>
+      <section className="divider">
         <div className="image-box">
-          <Image src="/images/why.png" alt="why" fill />
+          <Image src={"/images/partners.png"} fill />
         </div>
-        <span className="text-01">
-          Just in the Netherlands, 10,000 companies are sold in the every year.
-          40,000 other entrepreneurs close their doors without selling. Research
-          in collaboration with the Chamber of Commerce shows that half of these
-          (20,000 companies) could have been sold.
-          <br />
-          <br /> Given the approximate 50,000 buyers, this means 2.5 buyers per
-          seller, a change to not underestimate.
-        </span>
-      </div>
-      <div className="content-06 content">
-        <span className="title">Toolkit</span>
-        <div className="toolkit-box">
-          {toolkitItem.map((text, i) => (
-            <div className="toolkit-item" key={i}>
-              <span className="toolkit-text">{text}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="content-07 content" id="meet">
-        <span className="title">Meet the Team</span>
-        <div className="meet-content">
-          {cofounder.map((member, i) => (
-            <div className="member-box" key={i}>
-              <div className="image-box">
-                <Image src={member.image} alt="profile" fill />
-              </div>
-              <span>Co-Founder</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="content-08 content">
-        <span className="title">
-          Read what <u>others</u> have to say
-        </span>
-        <div className="others-box">
-          {others.map((personInfo, i) => (
-            <div className="other-profile" key={i}>
-              <div className="image-box">
-                <Image src={personInfo.image} fill alt="profile" />
-              </div>
-              <span className="text-01">{personInfo.name}</span>
-              <span className="text-02">{personInfo.description}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="content-09 content">
-        <span className="text-01">interested?</span>
-        <span className="text-02">Take part of the transition</span>
-        <button className="start-btn">Get Started</button>
-      </div>
-      <div className="content-10 content">
-        <span className="title">FAQs</span>
-        <div className="image-box">
-          <Image src="/images/faq.png" fill alt="faq" />
-        </div>
-        <div className="faq-box">
-          {FAQs.map((faqContent, index) => (
-            <div
-              key={index}
-              onClick={() => handleClick(index)}
-              className={activeItems == index ? "faq-item active" : "faq-item"}
-            >
-              <div className="down-image-box">
-                <Image src="/images/arrow-down.png" alt="down" fill />
-              </div>
-              <span className="text-01">
-                {faqContent.qustion}
-                <br />
-                <div
-                  className="description"
-                  style={{
-                    fontSize: "1.3rem",
-                    lineHeight: "1.3rem",
-                    margin: "10px 0",
-                  }}
-                >
-                  {faqContent.description}
-                </div>
+      </section>
+
+      <section className="section-02">
+        <div className="left center">
+          <h1 className="title">The old way</h1>
+          <div className="bottom">
+            <div className="txt-box">
+              <h2>Countless Hours on Research</h2>
+              <span>
+                Manually compiling lists of potential buyers or sellers, taking
+                days or even weeks.
+              </span>
+              <h2>Inconsistent and Incomplete Data</h2>
+              <span>
+                Relying on outdated databases and fragmented information
+                sources.
+              </span>
+              <h2>Complex Coordination</h2>
+              <span>
+                Juggling multiple communication channels and scheduling
+                conflicts.
               </span>
             </div>
-          ))}
+            <div className="image-box">
+              <Image src={"/images/index-section-021.png"} fill />
+            </div>
+          </div>
         </div>
-      </div>
-      <style jsx>{`
-        .home {
-          padding: 0 10%;
-          width: 100vw;
-          overflow-x: hidden;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+        <div className="right center">
+          <h1 className="title">The SET way</h1>
+          <div className="bottom">
+            <div className="image-box">
+              <Image src={"/images/index-section-022.png"} fill />
+            </div>
+            <div className="txt-box">
+              <h2>Fast matchmaking</h2>
+              <span>
+                Quickly connect with potential buyers or sellers using advanced
+                algorithms, saving you time and effort.
+              </span>
+              <h2>Centralised deal data</h2>
+              <span>
+                Access up-to-date, complete deal information in one central
+                location, eliminating confusion and errors.
+              </span>
+              <h2>Unified communication</h2>
+              <span>
+                Streamline your communications with an integrated platform,
+                avoiding the chaos of multiple channels.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-03">
+        <span>How does it work?</span>
+        <div className="arrow-image-box">
+          <Image src="/images/bottom-arrow.png" fill />
+        </div>
+        <h1>Jumpstarting the journey</h1>
+        <div className="image-box-1">
+          <Image src="/images/index-section-03.png" fill />
+        </div>
 
-          .title {
-            color: #6db9ff;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 50px;
-          }
+        <div className="image-box-2">
+          <Image src="/images/index-section-03-1.png" fill />
+        </div>
 
-          .image-01 {
-            position: absolute;
-            width: 50%;
-            height: 50%;
-            top: 24px;
-            left: 0;
-            z-index: -1;
-          }
-          .image-02 {
-            position: absolute;
-            right: 0;
-            width: 40%;
-            height: 80%;
-            bottom: -200px;
-            right: 0;
-          }
-          .content {
-            margin-bottom: 100px;
-          }
-          .content-01 {
+        <div className="detail">
+          <div className="item-box">
+            <div className="icon-image-box">
+              <Image src="/images/index-icon-01.png" fill />
+            </div>
+            <span className="txt-01">Aggregating & standardizing data</span>
+            <span className="txt-02">
+              We collect and streamline all necessary data, wishes and wants
+              with out data pipeline.
+            </span>
+            <span className="txt-03">Learn more</span>
+          </div>
+          <div className="item-box">
+            <div className="icon-image-box">
+              <Image src="/images/index-icon-02.png" fill />
+            </div>
+            <span className="txt-01">Sourcing targets</span>
+            <span className="txt-02">
+              We immediately are able to provide the best matches from our
+              database. Further personalised research can be carried out.{" "}
+            </span>
+            <span className="txt-03">Learn more</span>
+          </div>
+          <div className="item-box">
+            <div className="icon-image-box">
+              <Image src="/images/index-icon-03.png" fill />
+            </div>
+            <span className="txt-01">Selecting & contacting matches</span>
+            <span className="txt-02">
+              Given the interests, initial contacts are made and disclosure is
+              controlled. Once a match, a broker continues the process.{" "}
+            </span>
+            <span className="txt-03">Learn more</span>
+          </div>
+        </div>
+      </section>
+      <section className="section-05">
+        <div className="left">
+          <div className="image-box">
+            <Image src="/images/index-section-05.png" fill />
+          </div>
+        </div>
+        <div className="right">
+          <div className="title-box">
+            <h1 className="title">Find the right match</h1>
+            <div className="line-image-box">
+              <Image src="/images/index-section-05-line.png" fill />
+            </div>
+          </div>
+          <span className="txt-01">
+            Our advanced algorithms and comprehensive data analysis ensure you
+            find the perfect match for your business needs. Input your criteria,
+            and let our system do the rest. Get tailored recommendations that
+            align with your goals and maximize your opportunities for success.
+          </span>
+          <div className="txt-02-box">
+            <div className="check-image-box">
+              <Image src="/images/check.png" width={100} height={100} />
+            </div>
+            <span className="txt-02">
+              Precision: Advanced algorithms provide highly accurate match
+              suggestions based on your specific criteria.
+            </span>
+          </div>
+          <div className="txt-02-box">
+            <div className="check-image-box">
+              <Image src="/images/check.png" width={100} height={100} />
+            </div>
+            <span className="txt-02">
+              Precision: Advanced algorithms provide highly accurate match
+              suggestions based on your specific criteria.
+            </span>
+          </div>
+          <div className="txt-02-box">
+            <div className="check-image-box">
+              <Image src="/images/check.png" width={100} height={100} />
+            </div>
+            <span className="txt-02">
+              Precision: Advanced algorithms provide highly accurate match
+              suggestions based on your specific criteria.
+            </span>
+          </div>
+          <button className="discover-btn">Discover all features</button>
+        </div>
+      </section>
+
+      <section className="section-06">
+        <div className="right">
+          <div className="title-box">
+            <h1 className="title">Find the right match</h1>
+            <div className="line-image-box">
+              <Image src="/images/index-section-05-line.png" fill />
+            </div>
+          </div>
+          <span className="txt-01">
+            Our advanced algorithms and comprehensive data analysis ensure you
+            find the perfect match for your business needs. Input your criteria,
+            and let our system do the rest. Get tailored recommendations that
+            align with your goals and maximize your opportunities for success.
+          </span>
+          <div className="txt-02-box">
+            <div className="check-image-box">
+              <Image src="/images/check.png" width={100} height={100} />
+            </div>
+            <span className="txt-02">
+              Precision: Advanced algorithms provide highly accurate match
+              suggestions based on your specific criteria.
+            </span>
+          </div>
+          <div className="txt-02-box">
+            <div className="check-image-box">
+              <Image src="/images/check.png" width={100} height={100} />
+            </div>
+            <span className="txt-02">
+              Precision: Advanced algorithms provide highly accurate match
+              suggestions based on your specific criteria.
+            </span>
+          </div>
+          <div className="txt-02-box">
+            <div className="check-image-box">
+              <Image src="/images/check.png" width={100} height={100} />
+            </div>
+            <span className="txt-02">
+              Precision: Advanced algorithms provide highly accurate match
+              suggestions based on your specific criteria.
+            </span>
+          </div>
+          <button className="discover-btn">Discover all features</button>
+        </div>
+        <div className="left">
+          <div className="image-box">
+            <Image src="/images/index-section-06.png" fill />
+          </div>
+        </div>
+      </section>
+      <section className="section-07">
+        <h1 className="title">New Articles and Knowledge</h1>
+        <span className="txt-01">
+          Stay updated with the latest insights and advancements in data-driven
+          horticulture. Our articles provide valuable knowledge to help you
+          enhance your greenhouse management skills.
+        </span>
+        <div className="article-box">
+          <div className="article-item">
+            <div className="image-box">
+              <Image src="/images/index-section-07.png" fill />
+            </div>
+            <span className="date">10 October 2024</span>
+            <span className="article-title">
+              The Rise of Data in Horticulture
+            </span>
+            <span className="description">
+              horticulture industry. Learn about the latest trends and
+              technologies that are revolutionizing plant growth and greenhouse
+              operations.
+            </span>
+            <span className="readmore">
+              <u>Read more..</u>
+            </span>
+          </div>
+          <div className="article-item">
+            <div className="image-box">
+              <Image src="/images/index-section-07.png" fill />
+            </div>
+            <span className="date">10 October 2024</span>
+            <span className="article-title">
+              The Rise of Data in Horticulture
+            </span>
+            <span className="description">
+              horticulture industry. Learn about the latest trends and
+              technologies that are revolutionizing plant growth and greenhouse
+              operations.
+            </span>
+            <span className="readmore">
+              <u>Read more..</u>
+            </span>
+          </div>
+          <div className="article-item">
+            <div className="image-box">
+              <Image src="/images/index-section-07.png" fill />
+            </div>
+            <span className="date">10 October 2024</span>
+            <span className="article-title">
+              The Rise of Data in Horticulture
+            </span>
+            <span className="description">
+              horticulture industry. Learn about the latest trends and
+              technologies that are revolutionizing plant growth and greenhouse
+              operations.
+            </span>
+            <span className="readmore">
+              <u>Read more..</u>
+            </span>
+          </div>
+        </div>
+      </section>
+      <section className="section-08">
+        <span className="txt-01">
+          Subscribe to be notified when our services are live :)
+        </span>
+
+        <div className="input-box">
+          <input type="text" className="input" placeholder="Enter your email" />
+          <button className="btn">Subscribe</button>
+        </div>
+      </section>
+      <style jsx>
+        {`
+          .home {
+            width: 100vw;
+            overflow-x: hidden;
+            height: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            position: relative !important;
-            width: 100%;
-            height: calc(100vh - 182px);
-            margin-bottom: 0;
-            .image {
-              position: absolute;
-            }
-            .image-03 {
-              poaition: relative;
-              z-index: -1;
-              top: 60%;
+
+            .section-08{
               width: 100vw;
-              height: 285px;
+              background-color: #043A3A;
+              display:flex;
+              padding: 50px 5%;
+              padding-right: 1%;
+              justify-content:space-between;
+              color:white;
+
+              align-items:center;
+              .txt-01{
+                max-width: 400px;
+              }
+
+              .input-box{
+                display:flex;
+                position:relative;
+                .input{
+                  width: 300px;
+                  padding: 10px 10px;
+                  border-radius: 10px;
+                }
+                .btn{
+                  width: 100px;
+                  height: 50px;
+                  background-color: #939CB2;
+                  border-radius: 0 10px 10px 0;
+                  position:relative;
+                  right: 50px;
+                }
+              }
             }
 
-            .home-content {
-              width: 90%;
-              display: flex;
+            .section-07{
+              width: 100vw;
+              height: 100vh;
+              display:flex;
               flex-direction: column;
+              align-items:center;
               justify-content: center;
-              align-items: center;
+              padding: 0 5%;
 
-              .home-logo {
-                width: 456px;
-                height: 243px;
-                position: relative !important;
-              }
-
-              .text-01 {
-                font-size: 3rem;
-                font-weight: bold;
-              }
-
-              .text-02 {
-                font-size: 2rem;
-              }
-            }
-            .input-box {
-              position: relative;
-              width: 100%;
-              .search-input {
-                width: 100%;
-                margin-top: 100px;
-                border: 1px solid black;
-                padding: 10px 20px;
-                border-radius: 50px;
-              }
-
-              .send-image-box {
-                width: 45px;
-                height: 45px;
-                position: absolute;
-                bottom: 0px;
-                right: 10px;
-              }
-            }
-          }
-          .bottom-bar {
-            width: calc(100vw);
-            height: 61px;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            background-color: #001024;
-            color: white;
-            margin-bottom: 100px;
-            .bottom-text {
-              font-size: 1.5rem;
-              font-weight: 100;
-            }
-          }
-          .content-02 {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            .text-01 {
-              width: 100%;
-              text-align: center;
-              font-size: 1.5rem;
-              margin-bottom: 50px;
-            }
-
-            .want-box {
-              width: 60%;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              background: linear-gradient(
-                274.79deg,
-                #bac0cb 19.12%,
-                #cbe6fe 88.74%
-              );
-              padding: 30px 0;
-              border-radius: 10px;
-
-              .text-02 {
-                font-weight: bold;
-                font-size: 2.5rem;
-              }
-              .want-item-box {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 40px;
-                .want-item {
-                  color: white;
-                  font-size: 1.8rem;
-                  background-color: #001024;
-                  padding: 20px 50px;
-                  border-radius: 70px;
-                  text-align: center;
-                  transition-duration: 0.5s;
-                  font-weight: bold;
-                  margin: 10px 0;
-                }
-                .want-item:hover {
-                  color: #001024;
-                  background-color: white;
-                }
-              }
-            }
-          }
-          /* Rectangle 179 */
-
-          .content-03 {
-            display: flex;
-            flex-direction: column;
-            margin: 50px 0;
-            .title {
-              margin-bottom: 0;
-            }
-            .txt-box {
-              height: 390px;
-              display: flex;
-              align-items: center;
-            }
-
-            .what-box {
-              position: relative;
-              display: flex;
-              height: 525px;
-              justify-content: space-between;
-              align-items: center;
-              .txt-box {
-                font-weight: 500;
-                width: 50%;
-              }
-              .image-box {
-                position: relative;
-                width: 525px;
-                height: 525px;
-              }
-            }
-          }
-
-          .content-04 {
-            display: flex;
-            flex-direction: column;
-
-            .focus-box {
-              position: relative;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              height: 495px;
-              .p {
-                font-weight: 500;
-                width: 50%;
-              }
-              .focus-image-box {
-                position: relative;
-                width: 495px;
-                height: 495px;
-              }
-            }
-          }
-
-          .content-05 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            .title {
-              text-align: center;
-            }
-            .image-box {
-              position: relative !important;
-              width: 837px;
-              height: 429px;
-              margin-top: 100px;
-              margin-bottom: 50px;
-            }
-
-            .ol {
-              width: 70%;
-              font-size: 1.5rem;
-              list-style-type: decimal;
-            }
-
-            .text-01 {
-              font-size: 1.2rem;
-            }
-          }
-
-          .content-06 {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            .toolkit-box {
-              width: 1080px;
-              height: auto;
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: center;
-              .toolkit-item {
-                width: 255px;
-                height: 255px;
-                background-color: #001024;
-                color: white;
-                font-size: 1.5rem;
-                border-radius: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 5px 5px;
-                text-align: center;
-                transition-duration: 0.5s;
-              }
-              .toolkit-item:hover {
-                background-color: #2a507f;
-              }
-            }
-          }
-
-          .content-07 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-
-            .title {
-              color: black;
-            }
-            .meet-content {
-              display: flex;
-              justify-content: space-evenly;
-              align-items: center;
-              width: 100%;
-              background-color: #aad6ff;
-              border-radius: 10px;
-              height: 318px;
-
-              .member-box {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                .image-box {
-                  position: relative !important;
-                  width: 136px;
-                  height: 136px;
-                  margin-bottom: 30px;
-                }
-              }
-            }
-          }
-
-          .content-08 {
-            display: flex;
-            flex-direction: column;
-            align-itmes: center;
-
-            .title {
-              text-align: center;
-              color: black;
-              font-weight: 300;
-              margin-bottom: 150px;
-            }
-
-            .others-box {
-              display: flex;
-
-              .other-profile {
-                position: relative !important;
-                display: flex;
-                flex-direction: column;
-                background-color: #a1a9b8;
-                border-radius: 10px;
-                margin: 0 10px;
-                width: 345px;
-                height: 383px;
-                align-items: center;
-                padding: 0 30px;
-
-                .image-box {
-                  width: 136px;
-                  height: 136px;
-                  position: relative !important;
-                  top: -68px;
-                }
-
-                .text-01 {
-                  font-weight: bold;
-                  font-size: 2rem;
-                  margin-bottom: 20px;
-                }
-                .text-02 {
-                  font-size: 1.2rem;
-                  text-align: center;
-                }
-              }
-            }
-          }
-
-          .content-09 {
-            width: 1065px;
-            height: 499px;
-            background: linear-gradient(
-              274.79deg,
-              #bac0cb 19.12%,
-              #cbe6fe 88.74%
-            );
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 30px 0;
-            border-radius: 20px;
-
-            .text-01 {
-              font-size: 2rem;
-            }
-            .text-02 {
-              font-size: 4rem;
-              font-weight: bold;
-            }
-            .start-btn {
-              width: 354px;
-              height: 129px;
-              background-color: #001024;
-              color: white;
-              border-radius: 100px;
-              font-size: 3rem;
-              transition-duration: 0.5s;
-              font-weight: bold;
-            }
-            .start-btn:hover {
-              background-color: white;
-              color: #001024;
-            }
-            .text-03 {
-              font-size: 2rem;
-            }
-          }
-
-          .content-10 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-
-            .title {
-              color: black;
-              margin: 0;
-            }
-            .image-box {
-              position: relative !important;
-              width: 522px;
-              height: 522px;
-            }
-
-            .faq-box {
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              .faq-item {
-                width: 90%;
-                height: 59px;
-                overflow-y: hidden;
-                background-color: #001024;
-                border-radius: 15px;
-                color: white;
-                padding: 5px 10px;
-                margin: 3px 0;
-                display: flex;
-                font-size: 2rem;
-                cursor: pointer;
-                .down-image-box {
-                  position: relative !important;
-                  width: 26px;
-                  height: 18px;
-                  margin-right: 30px;
-                  align-self: center;
-                }
-                .text-01 {
-                  flex: 1;
-                }
-                transition-duration: 1s;
-              }
-              .active {
-                background-color: #315151;
-                height: fit-content;
-                color: white;
-              }
-            }
-          }
-        }
-        @media (max-width: 1200px) {
-          .home {
-            padding: 0;
-
-            .content-02 {
-              .want-box {
-                width: 60%;
-              }
-            }
-            .content-03 {
-              .what-box {
-                .image-box {
-                  width: 400px;
-                  height: 400px;
-                }
-              }
-            }
-            .content-04 {
-              .focus-box {
-                .focus-image-box {
-                  width: 400px;
-                  height: 400px;
-                }
-              }
-            }
-
-            .content-05 {
-              .image-box {
-                position: relative;
-                width: calc(837px * 3 / 5);
-                height: calc(429px * 3 / 5);
-              }
-              .text-01 {
-                width: 90%;
-              }
-            }
-
-            .content-06 {
-              .toolkit-box {
-                width: 90%;
-                .toolkit-item {
-                  width: 170px;
-                  height: 170px;
-                }
-              }
-            }
-
-            .content-07 {
-              .meet-content {
-                width: 80%;
-              }
-            }
-
-            .content-08 {
-              .others-box {
-                .other-profile {
-                  width: calc(345px * 7 / 10);
-                  height: calc(383px * 4 / 5);
-                  padding: 0 10px;
-                  .text-01 {
-                    margin-top: -20px;
-                  }
-                  .image-box {
-                    width: 100px;
-                    height: 100px;
-                    top: -50px;
-                  }
-                }
-              }
-            }
-
-            .content-09 {
-              width: 90%;
-              height: 430px;
-
-              .start-btn {
-                width: calc(354px * 4 / 5);
-                height: calc(129px * 4 / 5);
-              }
-            }
-          }
-        }
-        @media (max-width: 768px) {
-          .home {
-            .image-02 {
-              position: absolute;
-              right: 0;
-              width: 40%;
-              height: 70%;
-              bottom: -150px;
-              right: 0;
-            }
-
-            .content {
-              width: 360px;
-            }
-
-            .content-01 {
-              .image-03 {
-                poaition: relative;
-                z-index: -1;
-                top: 55%;
-                width: 100vw;
-                height: 100px;
-              }
-              .home-content {
-                width: 100%;
-                align-items: center;
-                justify-content: center;
-
-                .home-logo {
-                  width: calc(456px * 2 / 5);
-                  height: calc(243px * 2 / 5);
-                }
-                .text-01 {
-                  text-align: center;
-                }
-                .text-02 {
-                  text-align: center;
-                }
-
-                .input-box {
-                  .search-input {
-                    margin-top: 50px;
-                  }
-                  .send-image-box {
-                    width: 35px;
-                    height: 35px;
-                    bottom: 3px;
-                  }
-                }
-              }
-            }
-            .bottom-bar {
-              .bottom-text {
-                font-size: 1rem;
-              }
-            }
-            .content-02 {
-              .want-box {
-                width: 100%;
-              }
-            }
-            .content-03 {
-              .title {
-                text-align: center;
-              }
-              .what-box {
-                height: auto;
-                width: 100%;
-                flex-direction: column;
-
-                .image-box {
-                  width: 350px;
-                  height: 350px;
-                }
-                .txt-box {
-                  width: 100%;
-                }
-              }
-            }
-            .content-04 {
-              .title {
-                text-align: center;
-              }
-              .focus-box {
-                flex-direction: column;
-                height: auto;
-
-                .focus-image-box {
-                  top: 0;
-                  max-width: 350px;
-                  max-height: 350px;
-                  margin-bottom: 50px;
-                }
-
-                .p {
-                  width: 100%;
-                }
-              }
-            }
-
-            .content-05 {
-              .image-box {
-                position: relative !important;
-                width: calc(837px * 350 / 837);
-                height: calc(429px * 350 / 837);
-              }
-              .text-01 {
-                width: 90%;
-              }
-              .ol {
-                width: 90%;
-              }
-            }
-
-            .content-06 {
-              .toolkit-box {
-                width: 90%;
-                .toolkit-item {
-                  width: 130px;
-                  height: 130px;
-                }
-              }
-            }
-
-            .content-07 {
-              .meet-content {
-                width: 100%;
-                height: 250px;
-                .member-box {
-                  .image-box {
-                    width: 80px;
-                    height: 80px;
-                  }
-                }
-              }
-            }
-
-            .content-08 {
-              .title {
+              .txt-01{
+                max-width: 700px;
+                text-align:center;
                 margin-bottom: 100px;
               }
-              .others-box {
+              .article-box{
+                display:flex;
+
+                .article-item{
+                  margin: 0 2%;
+                  display:flex;
+                  flex-direction: column;
+                  .image-box{
+                    position:relative;
+                    width: 100%;
+                    padding-top: 60%;
+                  }
+
+                  .date{
+                    color: #2FB95D;
+                    margin: 10px 0;
+                  }
+
+                  .article-title{
+                    font-size: 1.5rem;
+                  }
+
+                  .description{
+                    margin: 10px 0;
+                  }
+
+                  .readmore{
+                    color: #2FB95D;
+                  }
+                }
+              }
+            }
+
+            .section-05, .section-06 {
+              width: 100vw;
+              height: 100vh;
+              display: flex;
+              background-color: #365154;
+              color: white;
+              align-items: center;
+              padding: 0 5%;
+
+              h1 {
+                padding: 0;
+              }
+
+              .left {
+                flex: 1;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                margin-right: 5%;
+                .image-box {
+                  position: relative;
+                  width: 50vw;
+                  max-width: 700px;
+                  padding-top: 90%;
+                }
+              }
+
+              .right {
+                flex: 1;
+                display: flex;
                 flex-direction: column;
-                .other-profile {
-                  width: 95%;
-                  height: 250px;
-                  padding: 0 10px;
-                  margin-bottom: 70px;
-                  .text-01 {
-                    margin-top: -20px;
+                width: fit-content;
+                .title-box {
+                  .title {
+                    width: fit-content;
+                    color: white;
                   }
+                  .line-image-box {
+                    position: relative;
+                     display: 'inline-block'
+                    width: 100%;
+                    padding-top: 5%;
+                  }
+                }
+                .txt-01 {
+                  margin: 50px 0;
+                }
+                .txt-02-box {
+                  display: flex;
+                  align-items:center;
+                  margin: 10px 0;
+
+                  .check-image-box{
+                    position:relative;
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 20px;
+                  }
+                }
+                .discover-btn{
+                  align-self: start;
+                  padding: 10px 20px;
+                  border: 1px solid white;
+                  border-radius: 50px;
+                  margin-top: 50px;
+                }
+              }
+            }
+
+            .section-06{
+              .left{
+                margin-right: 0;
+                margin-left: 5%;
+              }
+            }
+
+            .section-03 {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+
+              .arrow-image-box {
+                height: 54px;
+                width: 20px;
+                position: relative;
+              }
+              .image-box-1 {
+                position: relative;
+                width: 100vw;
+                max-width: 1175px;
+                padding-top: 45%;
+              }
+              .image-box-2 {
+                position: relative;
+                width: 100vw;
+                padding-top: 15%;
+              }
+
+              .detail {
+                display: flex;
+                padding: 0 10%;
+                .item-box {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: space-between;
+                  flex: 1;
+                  height: 400px;
+
+                  .txt-01 {
+                    text-align: center;
+                    font-weight: 600;
+                    font-size: 2rem;
+                    color: #525252;
+                  }
+                  .txt-02 {
+                    text-align: center;
+                    margin: 30px 0;
+                  }
+                  .icon-image-box {
+                    position: relative;
+                    width: 70px;
+                    height: 70px;
+                  }
+                }
+              }
+            }
+
+            .section-02 {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              height: 100vh;
+
+              .center {
+                width: 50vw;
+                height: 100%;
+                justify-content: center;
+
+                .title {
+                  width: 100%;
+                  text-align: center;
+                }
+                .bottom {
+                  display: flex;
                   .image-box {
-                    width: 100px;
-                    height: 100px;
-                    top: -50px;
+                    position: relative;
+                    width: calc(327px);
+                    height: calc(380px);
+                  }
+                  .txt-box {
+                    width: 50%;
+
+                    h2 {
+                      font-weight: bold;
+                      margin: 10px 0;
+                      padding-bottom: 0px;
+                    }
+                  }
+                }
+              }
+              .right {
+                background-color: #365154;
+
+                .bottom {
+                  .image-box {
+                    margin-right: 20px;
+                  }
+                  .txt-box {
+                    width: 50%;
+                    color: white;
+                  }
+                }
+              }
+
+              .left {
+                .bottom {
+                  .image-box {
+                    margin-left: 20px;
                   }
                 }
               }
             }
+            .section-01 {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              height: 100vh;
+              padding: 0 10%;
 
-            .content-09 {
-              width: 90%;
-              height: 430px;
+              .left {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                max-width: 650px;
 
-              .text-02 {
-                font-size: 3rem;
-                text-align: center;
+                .txt-01 {
+                  .effect {
+                    background-color: rgba(147, 156, 178, 0.3);
+                    color: #939cb2;
+                    border-radius: 50px;
+                    padding: 0 10px;
+                  }
+                }
+                .txt-02 {
+                  margin: 40px 0;
+                }
+                .btn-box {
+                  margin-top: 40px;
+                  .btn {
+                    padding: 15px 25px;
+                    border-radius: 50px;
+                    margin-right: 20px;
+                  }
+                  .start-btn {
+                    background-color: #adb6c5;
+                  }
+                  .book-btn {
+                    background-color: #6f8a8d;
+                  }
+                }
               }
-              .start-btn {
-                font-size: 2.5rem;
-                width: calc(354px * 6 / 10);
-                height: calc(129px * 6 / 10);
+              .right {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .image-box {
+                  position: relative;
+                  width: calc(50vw * 517 / 900);
+                  height: calc(50vw * 629 / 900);
+                }
               }
             }
-            .content-10 {
+
+            .divider {
+              width: 100vw;
+              height: 114px;
+              background-color: #ced6d7;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 0 50px;
               .image-box {
-                width: 350px;
-                height: 350px;
-              }
-              .faq-box {
-                .faq-item {
-                  height: 45px;
-                }
-                .active {
-                  height: fit-content;
-                }
+                position: relative;
+                width: 100%;
+                max-width: 1000px;
+                height: calc(100vw * 74 / 1600);
               }
             }
           }
-        }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 }
