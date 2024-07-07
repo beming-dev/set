@@ -93,7 +93,7 @@ export default function Home() {
         </div>
       </section>
       <section className="section-03">
-        <span>How does it work?</span>
+        <span className="title">How does it work?</span>
         <div className="arrow-image-box">
           <Image src="/images/bottom-arrow.png" fill />
         </div>
@@ -116,7 +116,9 @@ export default function Home() {
               We collect and streamline all necessary data, wishes and wants
               with out data pipeline.
             </span>
-            <span className="txt-03">Learn more</span>
+            <span className="txt-03">
+              <u style={{ color: "#365154" }}>Learn more</u>
+            </span>
           </div>
           <div className="item-box">
             <div className="icon-image-box">
@@ -127,7 +129,7 @@ export default function Home() {
               We immediately are able to provide the best matches from our
               database. Further personalised research can be carried out.{" "}
             </span>
-            <span className="txt-03">Learn more</span>
+            <u style={{ color: "#365154" }}>Learn more</u>
           </div>
           <div className="item-box">
             <div className="icon-image-box">
@@ -138,7 +140,7 @@ export default function Home() {
               Given the interests, initial contacts are made and disclosure is
               controlled. Once a match, a broker continues the process.{" "}
             </span>
-            <span className="txt-03">Learn more</span>
+            <u style={{ color: "#365154" }}>Learn more</u>
           </div>
         </div>
       </section>
@@ -467,6 +469,12 @@ export default function Home() {
                   border: 1px solid white;
                   border-radius: 50px;
                   margin-top: 50px;
+                  transition-duration: 0.7s;
+                }
+
+                .discover-btn:hover{
+                  background-color:white;
+                  color: #365154;
                 }
               }
             }
@@ -482,22 +490,26 @@ export default function Home() {
               display: flex;
               flex-direction: column;
               align-items: center;
-
+              padding-top: 100px;
+              margin-bottom: 100px;
               .arrow-image-box {
                 height: 54px;
                 width: 20px;
                 position: relative;
+                margin: 20px 0;
               }
               .image-box-1 {
                 position: relative;
                 width: 100vw;
                 max-width: 1175px;
-                padding-top: 45%;
+                padding-top: 35%;
               }
               .image-box-2 {
                 position: relative;
                 width: 100vw;
                 padding-top: 15%;
+                
+                margin: 50px 0;
               }
 
               .detail {
@@ -535,11 +547,13 @@ export default function Home() {
               justify-content: space-between;
               width: 100%;
               height: 100vh;
+              padding: 0 2%;
 
               .center {
                 width: 50vw;
                 height: 100%;
                 justify-content: center;
+                padding-top: 100px;
 
                 .title {
                   width: 100%;
