@@ -38,7 +38,13 @@ export default function Nav({ children, background }) {
         <span className="logo-txt">SET</span>
       </div>
 
-      <div className="nav">
+      <div className="hamburger">
+        <div className="image-box">
+          <Image src={"/images/hamburger.png"} fill />
+        </div>
+      </div>
+
+      <div className="nav web">
         {navList.map((item, i) => (
           <Link href={item.link} key={i}>
             <span className="nav-txt">{item.name}</span>
@@ -46,7 +52,7 @@ export default function Nav({ children, background }) {
         ))}
       </div>
 
-      <div className="items">
+      <div className="items web">
         <button className="login-btn btn">Log in</button>
         <button className="free-btn btn">Free Trial</button>
       </div>
@@ -75,6 +81,13 @@ export default function Nav({ children, background }) {
           }
         }
 
+        .hamburger {
+          .image-box {
+            position: relative;
+            width: 25px;
+            height: 25px;
+          }
+        }
         .nav {
           .nav-txt {
             margin: 0 15px;
@@ -95,6 +108,14 @@ export default function Nav({ children, background }) {
           .free-btn {
             background-color: #939cb2;
             border-color: #939cb2;
+          }
+        }
+
+        @media (max-width: 780px) {
+          .nav-bar {
+            .web {
+              display: none;
+            }
           }
         }
       `}</style>

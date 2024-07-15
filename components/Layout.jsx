@@ -18,12 +18,12 @@ export default function Layout({ children, background }) {
       <Head>
         <title>SET</title>
       </Head>
-      <ChatButton />
+      {/* <ChatButton />
       {!authed && (
         <button className="scan-btn" onClick={onScanClick}>
           Scan your opportunity
         </button>
-      )}
+      )} */}
       <header>
         <Header />
       </header>

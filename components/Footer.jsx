@@ -138,6 +138,16 @@ function Footer() {
             }
           }
         }
+
+        @media (max-width: 780px) {
+          .footer {
+            flex-direction: column;
+            padding: 50px 5%;
+            .center {
+              margin: 50px 0;
+            }
+          }
+        }
       `}</style>
     </div>
   );

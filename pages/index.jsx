@@ -18,9 +18,11 @@ export default function Home() {
           </h1>
           <h2 className="txt-02">
             Silver Era Transition bridges generations, ensuring the continuity
-            and growth of businesses. Designed for sellers, buyer and brokers,
-            we streamline the process by identify ideal opportunities, ensuring
-            a seamless and successful transition.
+            and growth of businesses. Designed for sellers, buyer and brokers.
+            <span className="web">
+              We streamline the process by identify ideal opportunities,
+              ensuring a seamless and successful transition.
+            </span>
           </h2>
 
           <div className="btn-box">
@@ -546,14 +548,14 @@ export default function Home() {
               display: flex;
               justify-content: space-between;
               width: 100%;
-              height: 100vh;
+              height: fit-content;
               padding: 0 2%;
 
               .center {
                 width: 50vw;
                 height: 100%;
                 justify-content: center;
-                padding-top: 100px;
+                padding: 100px 0;
 
                 .title {
                   width: 100%;
@@ -563,8 +565,9 @@ export default function Home() {
                   display: flex;
                   .image-box {
                     position: relative;
-                    width: calc(327px);
-                    height: calc(380px);
+                    width: 327px;
+                    padding-top: 50%;
+                    
                   }
                   .txt-box {
                     width: 50%;
@@ -665,6 +668,139 @@ export default function Home() {
                 height: calc(100vw * 74 / 1600);
               }
             }
+          }
+
+          @media(max-width: 780px){
+            .home{
+              .web{
+                display:none;
+              }
+
+              .section-01{
+                height: auto;
+                padding: 5% 3%;
+                .left{
+                  width: 60%;
+
+                  .txt-01{
+                    font-size: 2.5rem;
+                  }
+
+                  .txt-02{
+                    font-size: 1.5rem;
+                  }
+
+                  .btn-box{
+                    .btn{
+                      color:white;
+                      font-size: 1.2rem;
+                      margin-bottom: 10px;
+                    }
+                  }
+                }
+                .right{
+                  width: 30%;
+                  position:relative;
+                  .image-box{
+                    position:absolute;
+                    left: -40%;
+                    width: 400px;
+                    height: 400px;
+                  }
+                }
+              }
+
+              .section-02 {
+                display: flex;
+                flex-direction: column;
+                align-items:center;
+                padding: 0;
+                
+                .center{
+                  width: 100% !important;
+                  .txt-box{
+                    width: 55%;
+                      h2{
+                        font-size: 1.3rem;
+                      }
+                  }
+
+                  .bottom{
+                    .image-box{
+                      width: 45%;
+                    }
+                  }
+                }
+
+                .left{
+                  .bottom{
+                    padding-left: 2%;
+                  }
+                }
+
+                .right{
+                  .bottom{
+                    padding-right: 2%;
+                  }
+                }
+              }
+
+              .section-03 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 100px;
+                margin-bottom: 100px;
+
+                .detail {
+                  display: flex;
+                  flex-direction: column;
+                  padding: 0 10%;
+                  .item-box {
+                    max-width: 275px;
+                    margin-bottom: 50px;
+
+                    .icon-image-box{
+                      margin-bottom: 20px;
+                    }
+
+                    .txt-02{
+                      font-size: 1.5rem;
+                    }
+                  }
+                }
+              }
+
+
+              .section-05, .section-06 {
+                height: fit-content !important;
+                padding: 100px 3% !important;
+              }
+              .section-05{
+                flex-direction: column;
+              }
+              .section-06{
+                flex-direction: column;
+              }
+
+              .section-07{
+                display:none;
+              }
+              .section-08{
+                flex-direction: column;
+                align-items:center;
+
+                .txt-01{
+                  margin-bottom: 20px;
+                  margin-right: 20px;
+                }
+              }
+
+              {/* .discover-btn{
+                margin-bottom: 100px;
+            } */}  
+            }
+            
           }
         `}
       </style>
