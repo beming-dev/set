@@ -113,8 +113,22 @@ export default function Nav({ children, background }) {
 
         @media (max-width: 780px) {
           .nav-bar {
+            padding-left: 2%;
+
             .web {
               display: none;
+            }
+
+            .logo-box-box {
+              .logo-box {
+                position: relative;
+                width: 65px;
+                height: 45px;
+              }
+              .logo-txt {
+                font-size: 2rem;
+                letter-spacing: 4px;
+              }
             }
           }
         }
