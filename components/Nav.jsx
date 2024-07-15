@@ -38,7 +38,7 @@ export default function Nav({ children, background }) {
         <span className="logo-txt">SET</span>
       </div>
 
-      <div className="hamburger">
+      <div className="hamburger mobile">
         <div className="image-box">
           <Image src={"/images/hamburger.png"} fill />
         </div>
@@ -66,6 +66,11 @@ export default function Nav({ children, background }) {
           align-items: center;
           justify-content: space-between;
           padding: 0 5%;
+
+          .mobile {
+            display: none;
+          }
+
           .logo-box-box {
             display: flex;
             align-items: center;
