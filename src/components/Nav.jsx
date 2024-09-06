@@ -120,6 +120,10 @@ export default function Nav({ children, background }) {
           .nav-bar {
             padding-left: 2%;
 
+            .mobile {
+              display: block;
+            }
+
             .web {
               display: none;
             }
