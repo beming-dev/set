@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useAuth } from "/services/auth";
 import { useState } from "react";
 import Link from "next/link";
-import { authedRequest } from "../services/http";
+import { authedRequest } from "../src/services/http";
 import { useRouter } from "next/router";
 
 export default function Login() {

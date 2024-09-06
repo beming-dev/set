@@ -1,8 +1,5 @@
 import { Inter } from "next/font/google";
 import Image from "next/image";
-import { useState } from "react";
-import { useRouter } from "next/router";
-import Nav from "../components/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -159,6 +156,9 @@ export default function Home() {
               <Image src="/images/index-section-05-line.png" fill />
             </div>
           </div>
+          <div className="image-box-mobile">
+            <Image src="/images/index-section-05.png" fill />
+          </div>
           <span className="txt-01">
             Our advanced algorithms and comprehensive data analysis ensure you
             find the perfect match for your business needs. Input your criteria,
@@ -170,8 +170,8 @@ export default function Home() {
               <Image src="/images/check.png" width={100} height={100} />
             </div>
             <span className="txt-02">
-              Precision: Advanced algorithms provide highly accurate match
-              suggestions based on your specific criteria.
+              <b>Precision</b>: Advanced algorithms provide highly accurate
+              match suggestions based on your specific criteria.
             </span>
           </div>
           <div className="txt-02-box">
@@ -179,8 +179,8 @@ export default function Home() {
               <Image src="/images/check.png" width={100} height={100} />
             </div>
             <span className="txt-02">
-              Precision: Advanced algorithms provide highly accurate match
-              suggestions based on your specific criteria.
+              <b>Customization</b>: Tailor your search and receive
+              recommendations that fit your unique needs.
             </span>
           </div>
           <div className="txt-02-box">
@@ -188,8 +188,8 @@ export default function Home() {
               <Image src="/images/check.png" width={100} height={100} />
             </div>
             <span className="txt-02">
-              Precision: Advanced algorithms provide highly accurate match
-              suggestions based on your specific criteria.
+              <b>Opportunity Maximization</b>: Discover opportunities you might
+              have missed with manual searches.
             </span>
           </div>
           <button className="discover-btn">Discover all features</button>
@@ -199,10 +199,13 @@ export default function Home() {
       <section className="section-06">
         <div className="right">
           <div className="title-box">
-            <h1 className="title">Find the right match</h1>
+            <h1 className="title">Streamline your process</h1>
             <div className="line-image-box">
               <Image src="/images/index-section-05-line.png" fill />
             </div>
+          </div>
+          <div className="image-box-mobile">
+            <Image src="/images/index-section-06.png" fill />
           </div>
           <span className="txt-01">
             Our advanced algorithms and comprehensive data analysis ensure you
@@ -215,8 +218,8 @@ export default function Home() {
               <Image src="/images/check.png" width={100} height={100} />
             </div>
             <span className="txt-02">
-              Precision: Advanced algorithms provide highly accurate match
-              suggestions based on your specific criteria.
+              <b>Efficiency</b>: Save time with automated processes and
+              centralized data management.
             </span>
           </div>
           <div className="txt-02-box">
@@ -224,8 +227,8 @@ export default function Home() {
               <Image src="/images/check.png" width={100} height={100} />
             </div>
             <span className="txt-02">
-              Precision: Advanced algorithms provide highly accurate match
-              suggestions based on your specific criteria.
+              <b>Clarity</b>: Access all necessary information in one place,
+              eliminating confusion and errors.
             </span>
           </div>
           <div className="txt-02-box">
@@ -233,8 +236,8 @@ export default function Home() {
               <Image src="/images/check.png" width={100} height={100} />
             </div>
             <span className="txt-02">
-              Precision: Advanced algorithms provide highly accurate match
-              suggestions based on your specific criteria.
+              <b>Focus</b>: Concentrate on strategic decisions rather than
+              administrative tasks.
             </span>
           </div>
           <button className="discover-btn">Discover all features</button>
@@ -427,7 +430,7 @@ export default function Home() {
                 margin-right: 5%;
                 .image-box {
                   position: relative;
-                  width: 50vw;
+                  width: 40vw;
                   max-width: 700px;
                   padding-top: 90%;
                 }
@@ -438,6 +441,15 @@ export default function Home() {
                 display: flex;
                 flex-direction: column;
                 width: fit-content;
+
+                .image-box-mobile{
+                  position: relative;
+                  width: 50%;
+                  padding-top: 50%;
+                  align-self:center;
+                  display:none;
+                }
+
                 .title-box {
                   .title {
                     width: fit-content;
@@ -583,6 +595,9 @@ export default function Home() {
               .right {
                 background-color: #365154;
 
+                .title{
+                  color:white;
+                }
                 .bottom {
                   .image-box {
                     margin-right: 20px;
@@ -663,9 +678,8 @@ export default function Home() {
               padding: 0 50px;
               .image-box {
                 position: relative;
-                width: 100%;
-                max-width: 1000px;
-                height: calc(100vw * 74 / 1600);
+                width: 70%;
+                padding-top: 5%;
               }
             }
           }
@@ -709,6 +723,13 @@ export default function Home() {
                   }
                 }
               }
+              .divider {
+                  .image-box {
+                    position: relative;
+                    width: 100%;
+                    padding-top: 6%;
+                  }
+                }
 
               .section-02 {
                 display: flex;
@@ -752,10 +773,12 @@ export default function Home() {
                 padding-top: 100px;
                 margin-bottom: 100px;
 
+
                 .detail {
                   display: flex;
                   flex-direction: column;
                   padding: 0 10%;
+                  margin-top: 50px;
                   .item-box {
                     max-width: 275px;
                     margin-bottom: 50px;
@@ -775,6 +798,18 @@ export default function Home() {
               .section-05, .section-06 {
                 height: fit-content !important;
                 padding: 100px 3% !important;
+
+                .left{
+                  .image-box{
+                    display:none;
+                  }
+                }
+                .right{
+                  .image-box-mobile{
+                    margin: 20px 0;
+                    display:block;
+                  }
+                }
               }
               .section-05{
                 flex-direction: column;
@@ -789,6 +824,7 @@ export default function Home() {
               .section-08{
                 flex-direction: column;
                 align-items:center;
+                padding-left: 12%;
 
                 .txt-01{
                   margin-bottom: 20px;

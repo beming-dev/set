@@ -1,7 +1,7 @@
-import "/styles/globals.css";
+import "../styles/globals.css";
 import localFont from "next/font/local";
-import { AuthProvider } from "/services/auth";
-import Layout from "/components/Layout";
+import { AuthProvider } from "../services/auth";
+import Layout from "../components/Layout";
 import { RecoilRoot } from "recoil";
 
 // Font files can be colocated inside of `pages`

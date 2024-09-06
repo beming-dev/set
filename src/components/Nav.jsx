@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useAuth } from "../services/auth";
+import { useAuth } from "/src/services/auth";
 import { useRouter } from "next/router";
 
 export default function Nav({ children, background }) {

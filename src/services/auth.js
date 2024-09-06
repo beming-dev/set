@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { authedRequest, LOCAL_TOKEN } from "/services/http";
-import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
+import { authedRequest, LOCAL_TOKEN } from "../services/http";
 
 const AuthContext = createContext();
 

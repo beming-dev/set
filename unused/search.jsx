@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import MatchItem from "../components/MatchItem";
-import LongMatchItem from "../components/LongMatchItem";
+import MatchItem from "../src/components/MatchItem";
+import LongMatchItem from "../src/components/LongMatchItem";
 import { useRouter } from "next/router";
 
 function Search() {

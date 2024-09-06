@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "target": "es6", // 'es5'로 설정할 수도 있습니다.
+    "module": "esnext", // 'commonjs' 대신 'es6' 또는 'esnext'로 설정
+    "moduleResolution": "node", // 모듈 해석 방법 설정
+    "allowSyntheticDefaultImports": true, // 디폴트 import를 허용
+    "outDir": "./dist", // 컴파일된 파일이 저장될 디렉터리
+    "rootDir": "./src", // 소스 파일이 위치한 디렉터리
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -7,12 +13,10 @@
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/route.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/route.js"],
   "exclude": ["node_modules"]
 }
