@@ -19,8 +19,8 @@ export default async function handler(req, res) {
     if (data.valuation) {
       data.valuation = calculateMarketValueTier(data.valuation);
     }
-    if (data.profitMargin) {
-      data.profitMargin = calculateMarginTier(data.profitMargin);
+    if (data.profitMargins) {
+      data.profitMargins = calculateMarginTier(data.profitMargins);
     }
 
     await SellerAlias.create(data);
