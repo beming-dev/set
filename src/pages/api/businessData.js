@@ -1,7 +1,7 @@
 //contact.js
 import { BModel } from "../../services/models/bmodel.schema";
 import { ContactModel } from "../../services/models/contact.schema";
-import { connectDB } from "/db/config";
+import { connectDB } from "../../db/config";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {

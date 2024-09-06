@@ -1,5 +1,5 @@
-import { RecordModel } from "/services/models/record.schem";
-import { connectDB } from "/db/config";
+import { RecordModel } from "../../services/models/record.schem";
+import { connectDB } from "../../db/config";
 import jwt from "jsonwebtoken";
 
 export default async function handler(req, res) {

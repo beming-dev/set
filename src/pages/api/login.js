@@ -1,8 +1,8 @@
-import { UserModel } from "/services/models/users.schem";
+import { UserModel } from "../../services/models/users.schem";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { connectDB } from "/db/config";
+import { connectDB } from "../../db/config";
 
 export default async function handler(req, res) {
   console.log(1);
