@@ -40,7 +40,7 @@ export default function Nav({ children, background }) {
 
       <div className="hamburger mobile">
         <div className="image-box">
-          <Image src={"/images/hamburger.png"} fill />
+          <Image src={"/images/hamburger.png"} fill alt="fasdgs" />
         </div>
       </div>
 

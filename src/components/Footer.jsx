@@ -19,16 +19,16 @@ function Footer() {
         </span>
         <div className="icon-box">
           <div className="icon-image-box">
-            <Image src="/images/twitter.png" fill />
+            <Image src="/images/twitter.png" fill alt="fasdgs" />
           </div>
           <div className="icon-image-box">
-            <Image src="/images/insta.png" fill />
+            <Image src="/images/insta.png" fill alt="fasdgs" />
           </div>
           <div className="icon-image-box">
-            <Image src="/images/facebook.png" fill />
+            <Image src="/images/facebook.png" fill alt="fasdgs" />
           </div>
           <div className="icon-image-box">
-            <Image src="/images/youtube.png" fill />
+            <Image src="/images/youtube.png" fill alt="fasdgs" />
           </div>
         </div>
       </div>
@@ -43,13 +43,13 @@ function Footer() {
         <h2>Contact Us</h2>
         <div className="txt-01-box">
           <div className="image-box">
-            <Image src="/images/email.png" fill />
+            <Image src="/images/email.png" fill alt="fasdgs" />
           </div>
           <span className="txt-01">info@tomatoworld.nl</span>
         </div>
         <div className="txt-01-box">
           <div className="image-box">
-            <Image src="/images/position.png" fill />
+            <Image src="/images/position.png" fill alt="fasdgs" />
           </div>
           <span className="txt-01">
             TomatoWorld  Zwethlaan 2, 2675 LB Honselersdijk
@@ -57,7 +57,7 @@ function Footer() {
         </div>
         <div className="txt-01-box">
           <div className="image-box">
-            <Image src="/images/call.png" fill />
+            <Image src="/images/call.png" fill alt="fasdgs" />
           </div>
           <span className="txt-01">
             <u>0174 612 525</u>

@@ -35,7 +35,7 @@ export default function Home() {
       </section>
       <section className="divider">
         <div className="image-box">
-          <Image src={"/images/partners.png"} fill />
+          <Image src={"/images/partners.png"} fill alt="fasdgs" />
         </div>
       </section>
 
@@ -61,7 +61,7 @@ export default function Home() {
               </span>
             </div>
             <div className="image-box">
-              <Image src={"/images/index-section-021.png"} fill />
+              <Image src={"/images/index-section-021.png"} fill alt="fasdgs" />
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function Home() {
           <h1 className="title">The SET way</h1>
           <div className="bottom">
             <div className="image-box">
-              <Image src={"/images/index-section-022.png"} fill />
+              <Image src={"/images/index-section-022.png"} fill alt="fasdgs" />
             </div>
             <div className="txt-box">
               <h2>Fast matchmaking</h2>
@@ -94,21 +94,21 @@ export default function Home() {
       <section className="section-03">
         <span className="title">How does it work?</span>
         <div className="arrow-image-box">
-          <Image src="/images/bottom-arrow.png" fill />
+          <Image src="/images/bottom-arrow.png" fill alt="fasdgs" />
         </div>
         <h1>Jumpstarting the journey</h1>
         <div className="image-box-1">
-          <Image src="/images/index-section-03.png" fill />
+          <Image src="/images/index-section-03.png" fill alt="fasdgs" />
         </div>
 
         <div className="image-box-2">
-          <Image src="/images/index-section-03-1.png" fill />
+          <Image src="/images/index-section-03-1.png" fill alt="fasdgs" />
         </div>
 
         <div className="detail">
           <div className="item-box">
             <div className="icon-image-box">
-              <Image src="/images/index-icon-01.png" fill />
+              <Image src="/images/index-icon-01.png" fill alt="fasdgs" />
             </div>
             <span className="txt-01">Aggregating & standardizing data</span>
             <span className="txt-02">
@@ -121,7 +121,7 @@ export default function Home() {
           </div>
           <div className="item-box">
             <div className="icon-image-box">
-              <Image src="/images/index-icon-02.png" fill />
+              <Image src="/images/index-icon-02.png" fill alt="fasdgs" />
             </div>
             <span className="txt-01">Sourcing targets</span>
             <span className="txt-02">
@@ -132,7 +132,7 @@ export default function Home() {
           </div>
           <div className="item-box">
             <div className="icon-image-box">
-              <Image src="/images/index-icon-03.png" fill />
+              <Image src="/images/index-icon-03.png" fill alt="fasdgs" />
             </div>
             <span className="txt-01">Selecting & contacting matches</span>
             <span className="txt-02">
@@ -146,18 +146,22 @@ export default function Home() {
       <section className="section-05">
         <div className="left">
           <div className="image-box">
-            <Image src="/images/index-section-05.png" fill />
+            <Image src="/images/index-section-05.png" fill alt="fasdgs" />
           </div>
         </div>
         <div className="right">
           <div className="title-box">
             <h1 className="title">Find the right match</h1>
             <div className="line-image-box">
-              <Image src="/images/index-section-05-line.png" fill />
+              <Image
+                src="/images/index-section-05-line.png"
+                fill
+                alt="fasdgs"
+              />
             </div>
           </div>
           <div className="image-box-mobile">
-            <Image src="/images/index-section-05.png" fill />
+            <Image src="/images/index-section-05.png" fill alt="fasdgs" />
           </div>
           <span className="txt-01">
             Our advanced algorithms and comprehensive data analysis ensure you
@@ -167,7 +171,12 @@ export default function Home() {
           </span>
           <div className="txt-02-box">
             <div className="check-image-box">
-              <Image src="/images/check.png" width={100} height={100} />
+              <Image
+                src="/images/check.png"
+                width={100}
+                height={100}
+                alt="fasdgs"
+              />
             </div>
             <span className="txt-02">
               <b>Precision</b>: Advanced algorithms provide highly accurate
@@ -176,7 +185,12 @@ export default function Home() {
           </div>
           <div className="txt-02-box">
             <div className="check-image-box">
-              <Image src="/images/check.png" width={100} height={100} />
+              <Image
+                src="/images/check.png"
+                width={100}
+                height={100}
+                alt="fasdgs"
+              />
             </div>
             <span className="txt-02">
               <b>Customization</b>: Tailor your search and receive
@@ -185,7 +199,12 @@ export default function Home() {
           </div>
           <div className="txt-02-box">
             <div className="check-image-box">
-              <Image src="/images/check.png" width={100} height={100} />
+              <Image
+                src="/images/check.png"
+                width={100}
+                height={100}
+                alt="fasdgs"
+              />
             </div>
             <span className="txt-02">
               <b>Opportunity Maximization</b>: Discover opportunities you might
@@ -201,11 +220,15 @@ export default function Home() {
           <div className="title-box">
             <h1 className="title">Streamline your process</h1>
             <div className="line-image-box">
-              <Image src="/images/index-section-05-line.png" fill />
+              <Image
+                src="/images/index-section-05-line.png"
+                fill
+                alt="fasdgs"
+              />
             </div>
           </div>
           <div className="image-box-mobile">
-            <Image src="/images/index-section-06.png" fill />
+            <Image src="/images/index-section-06.png" fill alt="fasdgs" />
           </div>
           <span className="txt-01">
             Our advanced algorithms and comprehensive data analysis ensure you
@@ -215,7 +238,12 @@ export default function Home() {
           </span>
           <div className="txt-02-box">
             <div className="check-image-box">
-              <Image src="/images/check.png" width={100} height={100} />
+              <Image
+                src="/images/check.png"
+                width={100}
+                height={100}
+                alt="fasdgs"
+              />
             </div>
             <span className="txt-02">
               <b>Efficiency</b>: Save time with automated processes and
@@ -224,7 +252,12 @@ export default function Home() {
           </div>
           <div className="txt-02-box">
             <div className="check-image-box">
-              <Image src="/images/check.png" width={100} height={100} />
+              <Image
+                src="/images/check.png"
+                width={100}
+                height={100}
+                alt="fasdgs"
+              />
             </div>
             <span className="txt-02">
               <b>Clarity</b>: Access all necessary information in one place,
@@ -233,7 +266,12 @@ export default function Home() {
           </div>
           <div className="txt-02-box">
             <div className="check-image-box">
-              <Image src="/images/check.png" width={100} height={100} />
+              <Image
+                src="/images/check.png"
+                width={100}
+                height={100}
+                alt="fasdgs"
+              />
             </div>
             <span className="txt-02">
               <b>Focus</b>: Concentrate on strategic decisions rather than
@@ -244,7 +282,7 @@ export default function Home() {
         </div>
         <div className="left">
           <div className="image-box">
-            <Image src="/images/index-section-06.png" fill />
+            <Image src="/images/index-section-06.png" fill alt="fasdgs" />
           </div>
         </div>
       </section>
@@ -258,7 +296,7 @@ export default function Home() {
         <div className="article-box">
           <div className="article-item">
             <div className="image-box">
-              <Image src="/images/index-section-07.png" fill />
+              <Image src="/images/index-section-07.png" fill alt="fasdgs" />
             </div>
             <span className="date">10 October 2024</span>
             <span className="article-title">
@@ -275,7 +313,7 @@ export default function Home() {
           </div>
           <div className="article-item">
             <div className="image-box">
-              <Image src="/images/index-section-07.png" fill />
+              <Image src="/images/index-section-07.png" fill alt="fasdgs" />
             </div>
             <span className="date">10 October 2024</span>
             <span className="article-title">
@@ -292,7 +330,7 @@ export default function Home() {
           </div>
           <div className="article-item">
             <div className="image-box">
-              <Image src="/images/index-section-07.png" fill />
+              <Image src="/images/index-section-07.png" fill alt="fasdgs" />
             </div>
             <span className="date">10 October 2024</span>
             <span className="article-title">
