@@ -39,9 +39,7 @@ export default function Nav({ children, background }) {
       </div>
 
       <div className="hamburger mobile">
-        <div className="image-box">
-          <Image src={"/images/hamburger.png"} fill alt="fasdgs" />
-        </div>
+        <Image src="/images/hamburger.png" fill alt="fasdgs" />
       </div>
 
       <div className="nav web">
@@ -87,11 +85,9 @@ export default function Nav({ children, background }) {
         }
 
         .hamburger {
-          .image-box {
-            position: relative;
-            width: 25px;
-            height: 25px;
-          }
+          position: relative;
+          width: 25px;
+          height: 25px;
         }
         .nav {
           .nav-txt {

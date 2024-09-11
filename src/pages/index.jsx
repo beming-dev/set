@@ -67,6 +67,9 @@ export default function Home() {
         </div>
         <div className="right center">
           <h1 className="title">The SET way</h1>
+          <div className="easier-image">
+            <Image src={"/images/easier.png"} fill alt="fasdgs" />
+          </div>
           <div className="bottom">
             <div className="image-box">
               <Image src={"/images/index-section-022.png"} fill alt="fasdgs" />
@@ -286,7 +289,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section-07">
+      {/* <section className="section-07">
         <h1 className="title">New Articles and Knowledge</h1>
         <span className="txt-01">
           Stay updated with the latest insights and advancements in data-driven
@@ -346,7 +349,7 @@ export default function Home() {
             </span>
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="section-08">
         <span className="txt-01">
           Subscribe to be notified when our services are live :)
@@ -468,9 +471,8 @@ export default function Home() {
                 margin-right: 5%;
                 .image-box {
                   position: relative;
-                  width: 40vw;
-                  max-width: 700px;
-                  padding-top: 90%;
+                  width: 25vw;
+                  padding-top: 58%;
                 }
               }
 
@@ -554,7 +556,7 @@ export default function Home() {
                 position: relative;
                 width: 100vw;
                 max-width: 1175px;
-                padding-top: 35%;
+                padding-top: 30%;
               }
               .image-box-2 {
                 position: relative;
@@ -610,6 +612,7 @@ export default function Home() {
                 .title {
                   width: 100%;
                   text-align: center;
+                  margin-bottom: 100px;
                 }
                 .bottom {
                   display: flex;
@@ -632,9 +635,20 @@ export default function Home() {
               }
               .right {
                 background-color: #365154;
+                position:relative;
+
+                .easier-image{
+                    position:absolute;
+                    top: 200px;
+                    right: 100px;
+                    width: 150px;
+                    height: calc(150px * 1/5);
+                  }
 
                 .title{
                   color:white;
+                  position:relative;
+
                 }
                 .bottom {
                   .image-box {
@@ -669,6 +683,7 @@ export default function Home() {
                 max-width: 650px;
 
                 .txt-01 {
+                  font-size: 3rem;
                   .effect {
                     background-color: rgba(147, 156, 178, 0.3);
                     color: #939cb2;
@@ -701,7 +716,13 @@ export default function Home() {
                 .image-box {
                   position: relative;
                   width: calc(50vw * 517 / 900);
-                  height: calc(50vw * 629 / 900);
+                  height: calc(50vw * 750 / 900);
+                }
+                .image-box2 {
+                  top: -50px;
+                  position: relative;
+                  width: calc(50vw * 517 / 900);
+                  padding-top: 70%;
                 }
               }
             }
@@ -716,8 +737,30 @@ export default function Home() {
               padding: 0 50px;
               .image-box {
                 position: relative;
-                width: 70%;
+                width: 50%;
                 padding-top: 5%;
+              }
+            }
+          }
+
+          @media(max-width: 1024px){
+            .home{
+              .section-01{
+                .left{
+                  .txt-01{
+                    font-size: 2.7rem;
+                  }
+                }
+              }
+
+              .section-05{
+                .left{
+                  .image-box {
+                    position: relative;
+                    width: 35vw;
+                    padding-top: 80%;
+                  }
+                }
               }
             }
           }
@@ -757,7 +800,7 @@ export default function Home() {
                     position:absolute;
                     left: -40%;
                     width: 400px;
-                    height: 400px;
+                    height: 600px;
                   }
                 }
               }
