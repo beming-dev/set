@@ -54,9 +54,12 @@ const BuyerForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const result = await axios.post("http://localhost:3000/api/buyer", {
-        data: formData,
-      });
+      const result = await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_URI}/api/buyer`,
+        {
+          data: formData,
+        }
+      );
 
       router.push(`/matching?id=${result.data.id}`);
     } catch (error) {

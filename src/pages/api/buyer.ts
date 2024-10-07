@@ -53,7 +53,7 @@ city2: ${buyerPlace}
     let result = 0;
 
     await axios
-      .post("http://localhost:3000/api/gpt", { prompt })
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URI}/api/gpt`, { prompt })
       .then(({ data }) => {
         result = parseInt(data);
       });
@@ -156,7 +156,9 @@ The answer must be an output format.
     let result;
 
     await axios
-      .post("http://localhost:3000/api/gpt", { prompt: softScorePrompt })
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URI}/api/gpt`, {
+        prompt: softScorePrompt,
+      })
       .then(({ data }) => (result = JSON.parse(data)));
 
     return parseFloat(result.similarity.average_score);
