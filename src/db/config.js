@@ -1,11 +1,15 @@
 import mongoose from "mongoose";
 
-
 export const connectDB = async () => {
-    try {
-        await mongoose.connect('mongodb+srv://jiashengxu2002:Aa1773117640@set.mjgnxh0.mongodb.net/business');
-        console.log('connect');
-    } catch (err) {
-        console.log(err);
-    }
-}
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("connect");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const client = new MongoClient(process.env.MONGODB_URI);
+const clientPromise = client.connect();
+
+export default clientPromise;
