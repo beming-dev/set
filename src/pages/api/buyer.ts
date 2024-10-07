@@ -7,8 +7,8 @@ import {
   calculateMarketValueTier,
   calculateRevenueTier,
 } from "../../util/calculator";
-import { Response } from "express";
 import { Matching } from "../../services/models/matching.schema";
+import { NextApiRequest, NextApiResponse } from "next";
 
 const dutchCities = [
   "Amsterdam",
@@ -38,7 +38,10 @@ const industries = [
   "Art and Craft Markets",
 ];
 
-export default async function handler(req: Request, res: Response) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   async function calcGeographicScore(sellerPlace: string, buyerPlace: string) {
     const prompt = `
     I'll give you the name of two cities.
