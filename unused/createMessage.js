@@ -1,5 +1,5 @@
-import { connectDB } from "../../db/config";
-import { BusinessModel } from "../../services/models/business.schema";
+import { connectDB } from "../src/db/config";
+import { BusinessModel } from "../src/services/models/business.schema";
 
 export default async function createMessage(req, res) {
   const { messages } = req.body;

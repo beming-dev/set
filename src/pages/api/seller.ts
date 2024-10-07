@@ -1,14 +1,4 @@
-import { UserModel } from "../../services/models/users.schem";
-import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
 import { connectDB } from "../../db/config";
-import jwt from "jsonwebtoken";
-import BuyerAlias, { IBuyerAlias } from "../../services/models/buyer.schema";
-import {
-  calculateMarginTier,
-  calculateMarketValueTier,
-  calculateRevenueTier,
-} from "../../util/calculator";
 
 export default async function handler(req, res) {
   try {
@@ -27,7 +17,6 @@ export default async function handler(req, res) {
     }
 
     await BuyerAlias.create(data);
-
     res.status(201).json({
       message: "Buyer registered successfully",
     });

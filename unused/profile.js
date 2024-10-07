@@ -1,7 +1,7 @@
 // profile.js
-import { connectDB } from "../../db/config";
+import { connectDB } from "../src/db/config";
 import jwt from "jsonwebtoken";
-import { UserModel } from "../../services/models/users.schem";
+import { UserModel } from "../src/services/models/users.schem";
 
 export default async function handler(req, res) {
   try {

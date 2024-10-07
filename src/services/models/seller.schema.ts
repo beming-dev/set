@@ -1,4 +1,4 @@
-import { Schema, model, Document } from "mongoose";
+import mongoose, { Schema, model, Document } from "mongoose";
 
 export interface ISellerAlias extends Document {
   businessNumber?: number;
@@ -105,6 +105,8 @@ const SellerAliasSchema = new Schema<ISellerAlias>(
   { collection: "sellerAlias" }
 );
 
-const SellerAlias = model<ISellerAlias>("SellerAlias", SellerAliasSchema);
+const SellerAlias =
+  mongoose.models.SellerAlias ||
+  mongoose.model("SellerAlias", SellerAliasSchema);
 
 export default SellerAlias;

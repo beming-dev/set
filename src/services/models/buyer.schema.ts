@@ -1,6 +1,6 @@
-import { Schema, model, Document } from "mongoose";
+import mongoose, { Schema, model, Document } from "mongoose";
 
-export interface IBuyerAlias extends Document {
+export interface IBuyerAlias {
   buyerNumber?: number;
   availableCapital?: number;
   accessToFinancing?: string;
@@ -33,6 +33,7 @@ export interface IBuyerAlias extends Document {
   valuation?: number;
   profitMargins?: number;
   industry: string;
+  geographicLocation: string;
 }
 
 const BuyerAliasSchema = new Schema<IBuyerAlias>(
@@ -69,10 +70,12 @@ const BuyerAliasSchema = new Schema<IBuyerAlias>(
     valuation: { type: Number },
     profitMargins: { type: Number },
     industry: { type: String },
+    geographicLocation: { type: String },
   },
   { collection: "buyerAlias" }
 );
 
-const BuyerAlias = model<IBuyerAlias>("BuyerAlias", BuyerAliasSchema);
+const BuyerAlias =
+  mongoose.models.BuyerAlias || mongoose.model("BuyerAlias", BuyerAliasSchema);
 
 export default BuyerAlias;

@@ -19,10 +19,12 @@ export interface IMatchingModel extends Model<IMatching> {
 const MatchingSchema: Schema<IMatching> = new Schema({
   buyer_id: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: "BuyerAlias",
     required: true,
   },
   seller_id: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: "SellerAlias",
     required: true,
   },
   score: {
