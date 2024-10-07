@@ -55,12 +55,9 @@ const BuyerForm = () => {
     e.preventDefault();
     console.log(1);
     try {
-      const result = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_URI}/api/buyer`,
-        {
-          data: formData,
-        }
-      );
+      const result = await axios.post(`/api/buyer`, {
+        data: formData,
+      });
 
       router.push(`/matching?id=${result.data.id}`);
     } catch (error) {

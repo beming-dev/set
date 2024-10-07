@@ -52,11 +52,9 @@ city2: ${buyerPlace}
 
     let result = 0;
 
-    await axios
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URI}/api/gpt`, { prompt })
-      .then(({ data }) => {
-        result = parseInt(data);
-      });
+    await axios.post(`/api/gpt`, { prompt }).then(({ data }) => {
+      result = parseInt(data);
+    });
 
     return result;
   }
@@ -156,7 +154,7 @@ The answer must be an output format.
     let result;
 
     await axios
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URI}/api/gpt`, {
+      .post(`/api/gpt`, {
         prompt: softScorePrompt,
       })
       .then(({ data }) => (result = JSON.parse(data)));
