@@ -21,6 +21,7 @@
     "faker": "^6.6.6",
     "formik": "^2.4.5",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.9.0",
     "mongoose": "^8.0.1",
     "mysql2": "^3.6.3",
     "next": "^13.5.6",

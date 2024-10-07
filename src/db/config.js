@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { MongoClient } from "mongodb";
 
 export const connectDB = async () => {
   try {
@@ -9,7 +10,7 @@ export const connectDB = async () => {
   }
 };
 
-const client = new MongoClient(process.env.MONGODB_URI);
-const clientPromise = client.connect();
+// const client = new MongoClient(process.env.MONGODB_URI);
+// const clientPromise = client.connect();
 
-export default clientPromise;
+// export default clientPromise;
