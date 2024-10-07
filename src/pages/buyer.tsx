@@ -53,6 +53,7 @@ const BuyerForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log(1);
     try {
       const result = await axios.post(
         `${process.env.NEXT_PUBLIC_SERVER_URI}/api/buyer`,
