@@ -55,9 +55,11 @@ city2: ${buyerPlace}
 
     let result = 0;
 
-    await axios.post(`/api/gpt`, { prompt }).then(({ data }) => {
-      result = parseInt(data);
-    });
+    await axios
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URI}/api/gpt`, { prompt })
+      .then(({ data }) => {
+        result = parseInt(data);
+      });
 
     return result;
   }
@@ -157,7 +159,7 @@ The answer must be an output format.
     let result;
 
     await axios
-      .post(`/api/gpt`, {
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URI}/api/gpt`, {
         prompt: softScorePrompt,
       })
       .then(({ data }) => (result = JSON.parse(data)));
@@ -165,50 +167,52 @@ The answer must be an output format.
     return parseFloat(result.similarity.average_score);
   }
 
-  async function calcScores(buyer) {
+  async function calcScores(buyer, i) {
     let result = 0;
     const sellers = await SellerAlias.find();
 
-    for (let i = 0; i < 20; i++) {
-      const seller = sellers[i];
+    console.time("exampleFunction");
+    const seller = sellers[i];
 
-      const isExist = await Matching.findOne({
-        buyer_id: buyer._id,
-        seller_id: seller._id,
-      });
+    const isExist = await Matching.findOne({
+      buyer_id: buyer._id,
+      seller_id: seller._id,
+    });
 
-      if (isExist) continue;
+    if (isExist) return;
 
-      const hardScore = await calcHardScore(seller, buyer);
-      const softScore = await calcSoftScore(seller, buyer);
+    const hardScore = await calcHardScore(seller, buyer);
+    const softScore = await calcSoftScore(seller, buyer);
 
-      result += hardScore + softScore;
+    result += hardScore + softScore;
 
-      if (!isNaN(result)) {
-        return await Matching.findOneAndUpdate(
-          {
-            buyer_id: buyer._id,
-            seller_id: seller._id,
-          },
-          {
-            buyer_id: buyer._id,
-            seller_id: seller._id,
-            score: result,
-          },
-          {
-            upsert: true,
-            new: true,
-          }
-        );
-      }
+    if (!isNaN(result)) {
+      await Matching.findOneAndUpdate(
+        {
+          buyer_id: buyer._id,
+          seller_id: seller._id,
+        },
+        {
+          buyer_id: buyer._id,
+          seller_id: seller._id,
+          score: result,
+        },
+        {
+          upsert: true,
+          new: true,
+        }
+      );
     }
+    console.timeEnd("exampleFunction");
   }
 
   if (req.method == "POST") {
     try {
       await connectDB();
 
-      const { data }: any = req.body;
+      const { data, idx, id }: any = req.body;
+
+      console.log(id);
 
       if (data.revenue) {
         data.revenue = calculateRevenueTier(data.revenue);
@@ -220,11 +224,11 @@ The answer must be an output format.
         data.profitMargins = calculateMarginTier(data.profitMargins);
       }
 
-      const buyerData = await BuyerAlias.create(data);
+      let buyerData;
+      if (!id) buyerData = await BuyerAlias.create(data);
+      else buyerData = await BuyerAlias.findById(id);
 
-      const result = await calcScores(buyerData);
-
-      console.log(12, result);
+      await calcScores(buyerData, idx);
 
       res.status(200).json({ id: buyerData._id });
     } catch (error) {

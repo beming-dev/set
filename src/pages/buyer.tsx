@@ -3,6 +3,56 @@ import axios from "axios";
 import { IBuyerAlias } from "../services/models/buyer.schema";
 import { useRouter } from "next/router";
 
+const LoadingSpinner = () => {
+  // 로딩 스피너와 텍스트를 표시하는 로딩 컴포넌트
+  const spinnerStyle: React.CSSProperties = {
+    border: "8px solid rgba(0, 0, 0, 0.1)",
+    borderTop: "8px solid #3498db",
+    borderRadius: "50%",
+    width: "60px",
+    height: "60px",
+    animation: "spin 1s linear infinite",
+    marginBottom: "16px",
+  };
+
+  const containerStyle: React.CSSProperties = {
+    display: "flex",
+    flexDirection: "column", // 수정: string 대신 'column'과 같은 정확한 값 사용
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100vh",
+    width: "100vw",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    position: "fixed",
+    top: 0,
+    left: 0,
+    zIndex: 9999,
+  };
+
+  const textStyle: React.CSSProperties = {
+    fontSize: "18px",
+    fontWeight: 500,
+    color: "#333",
+  };
+
+  // keyframes 애니메이션 추가
+  const keyframesStyle = `
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  `;
+
+  return (
+    <div style={containerStyle}>
+      {/* 애니메이션을 위해 style 태그를 동적으로 추가 */}
+      <style>{keyframesStyle}</style>
+      <div style={spinnerStyle}></div>
+      <p style={textStyle}>Loading...</p>
+    </div>
+  );
+};
+
 const BuyerForm = () => {
   const router = useRouter();
 
@@ -41,6 +91,8 @@ const BuyerForm = () => {
     geographicLocation: "Amsterdam",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -53,12 +105,22 @@ const BuyerForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(1);
+    if (loading) return;
     try {
-      const result = await axios.post(`/api/buyer`, {
-        data: formData,
-      });
+      let result;
 
+      setLoading(true);
+      for (let i = 0; i < 10; i++) {
+        const { data } = await axios.post(`/api/buyer`, {
+          data: formData,
+          idx: i,
+          id: result,
+        });
+
+        result = data.id;
+      }
+
+      setLoading(false);
       router.push(`/matching?id=${result.data.id}`);
     } catch (error) {
       console.error("There was an error submitting the data!", error);
@@ -74,6 +136,7 @@ const BuyerForm = () => {
   // }, []);
   return (
     <form onSubmit={handleSubmit} className="box">
+      {loading && <LoadingSpinner />}
       <label>Available Capital:</label>
       <input
         type="number"

@@ -65,7 +65,7 @@ export default function Matching() {
             </p>
             <p>
               <strong>Profit Margins:</strong> €
-              {item.seller_id.profitMargins.toLocaleString() * 100000}
+              {item.seller_id.profitMargins?.toLocaleString() * 100000}
             </p>
           </div>
         ))}

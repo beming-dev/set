@@ -1,5 +1,3 @@
-import { connectDB } from "../../db/config";
-import { BusinessModel } from "../../services/models/business.schema";
 import OpenAI from "openai";
 
 export default async function createMessage(req, res) {

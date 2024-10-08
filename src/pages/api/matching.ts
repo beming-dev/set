@@ -15,7 +15,6 @@ export default async function createMessage(req, res) {
           score: -1,
         });
 
-      console.log(matchingInfo);
       res.status(200).send(matchingInfo);
     }
   } catch (error) {
