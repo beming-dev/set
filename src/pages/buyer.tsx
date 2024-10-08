@@ -106,11 +106,13 @@ const BuyerForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (loading) return;
-    try {
-      let result;
 
-      setLoading(true);
-      for (let i = 0; i < 10; i++) {
+    let result;
+
+    setLoading(true);
+    for (let i = 0; i < 10; i++) {
+      try {
+        console.time("check");
         const { data } = await axios.post(`/api/buyer`, {
           data: formData,
           idx: i,
@@ -118,13 +120,16 @@ const BuyerForm = () => {
         });
 
         result = data.id;
+        console.timeEnd("check");
+      } catch (err) {
+        console.timeEnd("check");
+        console.log("false");
+        continue;
       }
-
-      setLoading(false);
-      router.push(`/matching?id=${result.data.id}`);
-    } catch (error) {
-      console.error("There was an error submitting the data!", error);
     }
+
+    setLoading(false);
+    router.push(`/matching?id=${result.data.id}`);
   };
 
   // useEffect(() => {
