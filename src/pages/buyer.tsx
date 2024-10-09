@@ -107,29 +107,21 @@ const BuyerForm = () => {
     e.preventDefault();
     if (loading) return;
 
-    let result;
-
     setLoading(true);
-    for (let i = 0; i < 10; i++) {
-      try {
-        console.time("check");
-        const { data } = await axios.post(`/api/buyer`, {
-          data: formData,
-          idx: i,
-          id: result,
-        });
+    try {
+      const { data } = await axios.post(`/api/buyer`, {
+        data: formData,
+      });
 
-        result = data.id;
-        console.timeEnd("check");
-      } catch (err) {
-        console.timeEnd("check");
-        console.log("false");
-        continue;
-      }
+      console.log(data);
+
+      const result = data.id;
+      router.push(`/matching?id=${result}`);
+    } catch (err) {
+      console.log("false");
     }
 
     setLoading(false);
-    router.push(`/matching?id=${result.data.id}`);
   };
 
   // useEffect(() => {

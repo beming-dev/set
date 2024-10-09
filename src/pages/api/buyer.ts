@@ -167,42 +167,53 @@ The answer must be an output format.
     return parseFloat(result.similarity.average_score);
   }
 
-  async function calcScores(buyer, i) {
+  async function calcScores(buyer) {
     let result = 0;
     const sellers = await SellerAlias.find();
 
     console.time("exampleFunction");
-    const seller = sellers[i];
 
-    const isExist = await Matching.findOne({
-      buyer_id: buyer._id,
-      seller_id: seller._id,
+    // seller들의 정보를 각각 병렬로 처리하기 위해 map을 사용
+    const promises = sellers.slice(0, 4).map(async (seller) => {
+      // 이미 매칭된 seller와 buyer가 있는지 확인
+      const isExist = await Matching.findOne({
+        buyer_id: buyer._id,
+        seller_id: seller._id,
+      });
+
+      // 이미 매칭된 경우 종료
+      if (isExist) return;
+
+      // hardScore와 softScore를 병렬로 계산
+      const [hardScore, softScore] = await Promise.all([
+        calcHardScore(seller, buyer),
+        calcSoftScore(seller, buyer),
+      ]);
+
+      result += hardScore + softScore;
+
+      // 결과값이 NaN이 아닌 경우에만 DB 업데이트
+      if (!isNaN(result)) {
+        await Matching.findOneAndUpdate(
+          {
+            buyer_id: buyer._id,
+            seller_id: seller._id,
+          },
+          {
+            buyer_id: buyer._id,
+            seller_id: seller._id,
+            score: result,
+          },
+          {
+            upsert: true,
+            new: true,
+          }
+        );
+      }
     });
 
-    if (isExist) return;
-
-    const hardScore = await calcHardScore(seller, buyer);
-    const softScore = await calcSoftScore(seller, buyer);
-
-    result += hardScore + softScore;
-
-    if (!isNaN(result)) {
-      await Matching.findOneAndUpdate(
-        {
-          buyer_id: buyer._id,
-          seller_id: seller._id,
-        },
-        {
-          buyer_id: buyer._id,
-          seller_id: seller._id,
-          score: result,
-        },
-        {
-          upsert: true,
-          new: true,
-        }
-      );
-    }
+    // 모든 비동기 작업이 완료될 때까지 기다림
+    await Promise.all(promises);
     console.timeEnd("exampleFunction");
   }
 
@@ -210,9 +221,7 @@ The answer must be an output format.
     try {
       await connectDB();
 
-      const { data, idx, id }: any = req.body;
-
-      console.log(id);
+      const { data }: any = req.body;
 
       if (data.revenue) {
         data.revenue = calculateRevenueTier(data.revenue);
@@ -224,11 +233,9 @@ The answer must be an output format.
         data.profitMargins = calculateMarginTier(data.profitMargins);
       }
 
-      let buyerData;
-      if (!id) buyerData = await BuyerAlias.create(data);
-      else buyerData = await BuyerAlias.findById(id);
+      const buyerData = await BuyerAlias.create(data);
 
-      await calcScores(buyerData, idx);
+      await calcScores(buyerData);
 
       res.status(200).json({ id: buyerData._id });
     } catch (error) {
