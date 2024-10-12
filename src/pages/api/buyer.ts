@@ -152,7 +152,7 @@ city2: ${buyerPlace}
 }
 
 Please calculate the match score <score> in the output format by using the given input data.
-The value must be an actual number between 0 and 1.
+The value must be an actual number between 0 and 2.
 The answer must be an output format.
     `;
 
