@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { IBuyerAlias } from "../services/models/buyer.schema";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 const LoadingSpinner = () => {
   // 로딩 스피너와 텍스트를 표시하는 로딩 컴포넌트
@@ -55,6 +56,7 @@ const LoadingSpinner = () => {
 
 const BuyerForm = () => {
   const router = useRouter();
+  const { data: session } = useSession();
 
   const [formData, setFormData] = useState<IBuyerAlias>({
     availableCapital: 500000,
@@ -104,18 +106,22 @@ const BuyerForm = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
+    if (!session) {
+      alert("you need to login");
+      return;
+    }
+
     e.preventDefault();
     if (loading) return;
 
     setLoading(true);
     try {
-      const { data } = await axios.post(`/api/buyer`, {
+      const res = await axios.post(`/api/buyer`, {
         data: formData,
+        userId: session.user.id,
       });
 
-      console.log(data);
-
-      const result = data.id;
+      const result = res.data.id;
       router.push(`/matching?id=${result}`);
     } catch (err) {
       console.log("false");

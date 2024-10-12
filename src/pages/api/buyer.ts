@@ -174,7 +174,7 @@ The answer must be an output format.
     console.time("exampleFunction");
 
     // seller들의 정보를 각각 병렬로 처리하기 위해 map을 사용
-    const promises = sellers.slice(0, 4).map(async (seller) => {
+    const promises = sellers.slice(0, 1).map(async (seller) => {
       // 이미 매칭된 seller와 buyer가 있는지 확인
       const isExist = await Matching.findOne({
         buyer_id: buyer._id,
@@ -220,8 +220,14 @@ The answer must be an output format.
   if (req.method == "POST") {
     try {
       await connectDB();
+      const { data, userId }: any = req.body;
 
-      const { data }: any = req.body;
+      const isExist = await BuyerAlias.findOne({ userId });
+      if (isExist._id) {
+        res.status(200).json({ id: isExist._id });
+      } else {
+        console.log("fuck");
+      }
 
       if (data.revenue) {
         data.revenue = calculateRevenueTier(data.revenue);
@@ -233,7 +239,7 @@ The answer must be an output format.
         data.profitMargins = calculateMarginTier(data.profitMargins);
       }
 
-      const buyerData = await BuyerAlias.create(data);
+      const buyerData = await BuyerAlias.create({ ...data, userId });
 
       await calcScores(buyerData);
 

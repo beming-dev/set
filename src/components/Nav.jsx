@@ -51,7 +51,9 @@ export default function Nav({ children, background }) {
       </div>
 
       <div className="items web">
-        <button className="login-btn btn">Log in</button>
+        <Link href="/login">
+          <button className="login-btn btn">Log in</button>
+        </Link>
         <button className="free-btn btn">Free Trial</button>
       </div>
       <style jsx>{`

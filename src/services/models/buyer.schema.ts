@@ -1,6 +1,7 @@
 import mongoose, { Schema, model, Document } from "mongoose";
 
 export interface IBuyerAlias {
+  userId: string;
   buyerNumber?: number;
   availableCapital?: number;
   accessToFinancing?: string;
@@ -38,6 +39,7 @@ export interface IBuyerAlias {
 
 const BuyerAliasSchema = new Schema<IBuyerAlias>(
   {
+    userId: { type: String },
     buyerNumber: { type: Number },
     availableCapital: { type: Number },
     accessToFinancing: { type: String },

@@ -1,9 +1,16 @@
+import { useSession } from "next-auth/react";
 import { Inter } from "next/font/google";
 import Image from "next/image";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    console.log(session);
+  }, [session]);
   return (
     <div className="home">
       <section className="section-01">

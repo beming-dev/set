@@ -3,7 +3,19 @@ import localFont from "next/font/local";
 import { AuthProvider } from "../services/auth";
 import Layout from "../components/Layout";
 import { RecoilRoot } from "recoil";
+import { SessionProvider } from "next-auth/react";
 
+declare module "next-auth" {
+  interface Session {
+    // 추가하고자 하는 사용자 정의 속성
+    user: {
+      id: string; // 예: 사용자의 고유 ID
+      email: string;
+      name: string;
+      image: string;
+    };
+  }
+}
 // Font files can be colocated inside of `pages`
 const sfpro = localFont({
   src: [
@@ -35,15 +47,20 @@ const sfpro = localFont({
   ],
 });
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}): any {
   return (
     <>
       <main className={sfpro.className}>
         <RecoilRoot>
           <AuthProvider>
-            <Layout background="default">
-              <Component {...pageProps} />
-            </Layout>
+            <SessionProvider session={session}>
+              <Layout background="default">
+                <Component {...pageProps} />
+              </Layout>
+            </SessionProvider>
           </AuthProvider>
         </RecoilRoot>
       </main>
