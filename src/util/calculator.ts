@@ -4,11 +4,11 @@ export function calculateRevenueTier(value: number) {
 }
 
 export function calculateMarketValueTier(value: number): number {
-  const tierGap = 1000000;
+  const tierGap = 100000;
   return Math.floor(value / tierGap);
 }
 
 export function calculateMarginTier(value: number): number {
-  const tierGap = 5;
+  const tierGap = 100000;
   return Math.floor(value / tierGap);
 }

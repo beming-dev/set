@@ -152,7 +152,7 @@ city2: ${buyerPlace}
 }
 
 Please calculate the match score <score> in the output format by using the given input data.
-The value must be an actual number between 0 and 2.
+The value must be an actual number between 0 and 1.
 The answer must be an output format.
     `;
 
@@ -167,14 +167,19 @@ The answer must be an output format.
     return parseFloat(result.similarity.average_score);
   }
 
+  function getRandomInt() {
+    return Math.floor(Math.random() * 10);
+  }
+
   async function calcScores(buyer) {
     let result = 0;
     const sellers = await SellerAlias.find();
 
-    console.time("exampleFunction");
+    const start = getRandomInt();
+    const end = start + 13;
 
     // seller들의 정보를 각각 병렬로 처리하기 위해 map을 사용
-    const promises = sellers.slice(0, 1).map(async (seller) => {
+    const promises = sellers.slice(start, end).map(async (seller) => {
       // 이미 매칭된 seller와 buyer가 있는지 확인
       const isExist = await Matching.findOne({
         buyer_id: buyer._id,
@@ -217,16 +222,27 @@ The answer must be an output format.
     console.timeEnd("exampleFunction");
   }
 
+  if (req.method == "GET") {
+    await connectDB();
+
+    const { userId }: any = req.query;
+
+    const isExist = await BuyerAlias.findOne({ userId });
+    if (isExist) {
+      return res.status(200).json({ data: isExist });
+    } else {
+      return res.status(200).json({ data: null });
+    }
+  }
+
   if (req.method == "POST") {
     try {
       await connectDB();
       const { data, userId }: any = req.body;
 
       const isExist = await BuyerAlias.findOne({ userId });
-      if (isExist._id) {
-        res.status(200).json({ id: isExist._id });
-      } else {
-        console.log("fuck");
+      if (isExist) {
+        return res.status(200).json({ id: isExist._id });
       }
 
       if (data.revenue) {

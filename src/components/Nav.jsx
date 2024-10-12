@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useAuth } from "/src/services/auth";
 import { useRouter } from "next/router";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Nav({ children, background }) {
   const navList = [
@@ -22,24 +22,41 @@ export default function Nav({ children, background }) {
       link: "/about",
     },
   ];
-  const { authed, logout } = useAuth();
+
+  const { data: session } = useSession();
   const router = useRouter();
 
+  const onLoginClick = async () => {
+    await signIn();
+    router.reload();
+  };
+
   const onLogoutClick = async () => {
-    await logout();
+    await signOut();
     router.reload();
   };
   return (
     <div className="nav-bar">
-      <div className="logo-box-box">
-        <div className="logo-box">
-          <Image src="/images/footer-logo.png" fill alt="logo" />
+      <Link href="/">
+        <div className="logo-box-box">
+          <div className="logo-box">
+            <Image src="/images/footer-logo.png" fill alt="logo" />
+          </div>
+          <span className="logo-txt">SET</span>
         </div>
-        <span className="logo-txt">SET</span>
-      </div>
+      </Link>
 
       <div className="hamburger mobile">
-        <Image src="/images/hamburger.png" fill alt="fasdgs" />
+        {/* <Image src="/images/hamburger.png" fill alt="fasdgs" /> */}
+        {session ? (
+          <button className="login" onClick={onLogoutClick}>
+            logout
+          </button>
+        ) : (
+          <button className="login" onClick={() => router.push("/login")}>
+            login
+          </button>
+        )}
       </div>
 
       <div className="nav web">
@@ -51,9 +68,15 @@ export default function Nav({ children, background }) {
       </div>
 
       <div className="items web">
-        <Link href="/login">
-          <button className="login-btn btn">Log in</button>
-        </Link>
+        {session ? (
+          <button className="login-btn btn" onClick={onLogoutClick}>
+            Log out
+          </button>
+        ) : (
+          <button className="login-btn btn" onClick={onLoginClick}>
+            Log in
+          </button>
+        )}
         <button className="free-btn btn">Free Trial</button>
       </div>
       <style jsx>{`
@@ -87,9 +110,9 @@ export default function Nav({ children, background }) {
         }
 
         .hamburger {
-          position: relative;
-          width: 25px;
-          height: 25px;
+          .login {
+            font-size: 2rem;
+          }
         }
         .nav {
           .nav-txt {
