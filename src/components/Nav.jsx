@@ -27,8 +27,7 @@ export default function Nav({ children, background }) {
   const router = useRouter();
 
   const onLoginClick = async () => {
-    await signIn();
-    router.reload();
+    signIn();
   };
 
   const onLogoutClick = async () => {
@@ -53,7 +52,7 @@ export default function Nav({ children, background }) {
             logout
           </button>
         ) : (
-          <button className="login" onClick={() => router.push("/login")}>
+          <button className="login" onClick={() => signIn()}>
             login
           </button>
         )}
@@ -73,7 +72,7 @@ export default function Nav({ children, background }) {
             Log out
           </button>
         ) : (
-          <button className="login-btn btn" onClick={onLoginClick}>
+          <button className="login-btn btn" onClick={() => signIn()}>
             Log in
           </button>
         )}
