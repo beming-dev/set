@@ -222,6 +222,27 @@ The answer must be an output format.
     console.timeEnd("exampleFunction");
   }
 
+  function areObjectsEqual(obj1, obj2) {
+    // 두 객체의 키 목록을 가져옴
+    const keys1 = Object.keys(obj1);
+
+    // 모든 키와 그에 해당하는 값이 같은지 확인
+    for (let key of keys1) {
+      if (key === "revenue") obj1[key] /= 100000;
+      if (key === "valuation") obj1[key] /= 100000;
+      if (key === "profitMargins") obj1[key] /= 100000;
+
+      // 값이 같지 않으면 false 반환
+      if (obj1[key] !== obj2[key]) {
+        if (key === "_id") continue;
+        return false;
+      }
+    }
+
+    // 모든 키-값이 동일하면 true 반환
+    return true;
+  }
+
   if (req.method == "GET") {
     await connectDB();
 
@@ -241,8 +262,16 @@ The answer must be an output format.
       const { data, userId }: any = req.body;
 
       const isExist = await BuyerAlias.findOne({ userId });
+
       if (isExist) {
-        return res.status(200).json({ id: isExist._id });
+        if (
+          (userId != "670cbcef6440252eb64a498f" &&
+            userId != "6556daf114305a7ad2b588d2" &&
+            userId != "67093248b329f3855172ca53") ||
+          areObjectsEqual(data, isExist)
+        ) {
+          return res.status(200).json({ id: isExist._id });
+        }
       }
 
       if (data.revenue) {
@@ -255,7 +284,11 @@ The answer must be an output format.
         data.profitMargins = calculateMarginTier(data.profitMargins);
       }
 
-      const buyerData = await BuyerAlias.create({ ...data, userId });
+      const buyerData = await BuyerAlias.findOneAndUpdate(
+        { userId },
+        { ...data, userId },
+        { upsert: true, new: true }
+      );
 
       await calcScores(buyerData);
 
