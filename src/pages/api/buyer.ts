@@ -172,6 +172,7 @@ The answer must be an output format.
   }
 
   async function calcScores(buyer) {
+    Matching.deleteMany({ buyer_id: buyer._id });
     let result = 0;
     const sellers = await SellerAlias.find();
 
