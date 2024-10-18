@@ -76,7 +76,9 @@ export default function Nav({ children, background }) {
             Log in
           </button>
         )}
-        <button className="free-btn btn">Free Trial</button>
+        <button className="free-btn btn">
+          <Link href="/buyer">Free Trial</Link>
+        </button>
       </div>
       <style jsx>{`
         .nav-bar {
