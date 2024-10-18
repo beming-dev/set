@@ -1,6 +1,7 @@
 import { useSession } from "next-auth/react";
 import { Inter } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -13,6 +14,9 @@ export default function Home() {
   }, [session]);
   return (
     <div className="home">
+      <button className="fix-btn">
+        <Link href="/buyer">Buyer Enroll</Link>
+      </button>
       <section className="section-01">
         <div className="left">
           <h1 className="txt-01">
@@ -377,6 +381,16 @@ export default function Home() {
             flex-direction: column;
             align-items: center;
 
+            .fix-btn{
+              z-index: 1000;
+              padding: 10px 20px;
+              position: fixed;
+              right: 10px;
+              bottom: 10px;
+              border-radius: 50px;
+              background-color: #adb6c5;
+              color:black;
+            }
             .section-08{
               width: 100vw;
               background-color: #043A3A;
