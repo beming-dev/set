@@ -26,9 +26,9 @@ export default function Nav({ children, background }) {
   const { data: session } = useSession();
   const router = useRouter();
 
-  const onLoginClick = async () => {
-    signIn();
-  };
+  // const onLoginClick = async () => {
+  //   signIn();
+  // };
 
   const onLogoutClick = async () => {
     await signOut();
